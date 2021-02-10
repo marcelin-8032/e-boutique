@@ -1,14 +1,16 @@
 package fr.spring.eBoutique.project.dao;
 
-import fr.eboutique.project.connectionBDD.DataSourceConnexion;
-import fr.eboutique.project.entity.Produit;
+
+
+import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
+import fr.spring.eBoutique.project.model.Produit;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProduitDAO implements fr.eboutique.project.dao.IProduitDAO {
+public class ProduitDAO implements IProduitDAO {
 
 private Connection connexion= null;
 	

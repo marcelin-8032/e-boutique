@@ -1,7 +1,8 @@
 package fr.spring.eBoutique.project.dao;
 
-import fr.eboutique.project.connectionBDD.DataSourceConnexion;
-import fr.eboutique.project.entity.Commande;
+
+import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
+import fr.spring.eBoutique.project.model.Commande;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ private Connection connexion= null;
 	public CommandeDAO() {
 		if (connexion == null) {
 			try {
-				connexion=DataSourceConnexion.getInstance().getConnection();
+				connexion= DataSourceConnexion.getInstance().getConnection();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

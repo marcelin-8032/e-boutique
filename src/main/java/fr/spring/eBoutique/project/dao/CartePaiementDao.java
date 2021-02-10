@@ -1,13 +1,14 @@
 package fr.spring.eBoutique.project.dao;
 
-import fr.eboutique.project.connectionBDD.DataSourceConnexion;
-import fr.eboutique.project.entity.CartePaiement;
+
+import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
+import fr.spring.eBoutique.project.model.CartePaiement;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartePaiementDao implements fr.eboutique.project.dao.ICartePaiementDAO {
+public class CartePaiementDao implements ICartePaiementDAO {
 
 	
 private Connection connexion= null;

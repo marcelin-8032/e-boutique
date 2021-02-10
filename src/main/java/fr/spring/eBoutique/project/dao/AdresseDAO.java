@@ -1,7 +1,8 @@
 package fr.spring.eBoutique.project.dao;
 
-import fr.eboutique.project.connectionBDD.DataSourceConnexion;
-import fr.eboutique.project.entity.Adresse;
+
+import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
+import fr.spring.eBoutique.project.model.Adresse;
 
 import java.sql.*;
 

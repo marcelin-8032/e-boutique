@@ -1,7 +1,8 @@
 package fr.spring.eBoutique.project.dao;
 
-import fr.eboutique.project.connectionBDD.DataSourceConnexion;
-import fr.eboutique.project.entity.LigneCommande;
+
+import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
+import fr.spring.eBoutique.project.model.LigneCommande;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class LigneCommandeDAO implements ILigneCommandeDAO {
 			public LigneCommandeDAO() {
 				if (connexion == null) {
 					try {
-						connexion=DataSourceConnexion.getInstance().getConnection();
+						connexion= DataSourceConnexion.getInstance().getConnection();
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -55,7 +56,10 @@ public class LigneCommandeDAO implements ILigneCommandeDAO {
 		}
 		return listeLigneCom;
 }
-//--------------------------------------------------------------------------
+
+
+
+	//--------------------------------------------------------------------------
 	@Override
 	public LigneCommande addLigneCommande(LigneCommande ligneCommande) {
 		

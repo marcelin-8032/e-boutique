@@ -1,8 +1,9 @@
 package fr.spring.eBoutique.project.dao;
 
-import fr.eboutique.project.connectionBDD.DataSourceConnexion;
-import fr.eboutique.project.entity.Adresse;
-import fr.eboutique.project.entity.Utilisateur;
+
+import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
+import fr.spring.eBoutique.project.model.Adresse;
+import fr.spring.eBoutique.project.model.Utilisateur;
 
 import java.sql.*;
 
@@ -45,7 +46,7 @@ private Connection connexion= null;
 						utilisateur.setModePass(rs.getString("modePass"));
 						utilisateur.setTelephone(rs.getString("telephone"));
 						}	
-					fr.eboutique.project.dao.AdresseDAO adresseDAO= new fr.eboutique.project.dao.AdresseDAO();
+					AdresseDAO adresseDAO= new AdresseDAO();
 					Adresse adresse =adresseDAO.getAdresse(id);
 					utilisateur.setAdresse(adresse);
 					

@@ -1,11 +1,10 @@
-package fr.spring.eBoutique.project.dao;
+package fr.spring.eBoutique.project.control;
 
-
-import fr.spring.eBoutique.project.model.LigneCommande;
+import fr.eboutique.project.entity.LigneCommande;
 
 import java.util.List;
 
-public interface ILigneCommandeDAO {
+public interface ILigneCommandeControl {
 
 	List<LigneCommande> getLignesCommande(Integer idCommande);
 	LigneCommande addLigneCommande(LigneCommande ligneCommande);

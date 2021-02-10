@@ -1,9 +1,8 @@
-package fr.spring.eBoutique.project.dao;
+package fr.spring.eBoutique.project.control;
 
+import fr.eboutique.project.entity.Utilisateur;
 
-import fr.spring.eBoutique.project.model.Utilisateur;
-
-public interface IUtilisateurDAO<Login> {
+public interface IUtilisateurControl {
 
 	public Utilisateur getUtilisateurById (Integer id);
 	public Utilisateur getUtilisateurByLogin(String login);
@@ -12,4 +11,5 @@ public interface IUtilisateurDAO<Login> {
 	public void updateUtilisateur(Utilisateur utilisateur);
 	public void seDesinscrireUtilisateur (Integer id);
 	public boolean seConnecter (String peseudo, String password);
+	
 }
