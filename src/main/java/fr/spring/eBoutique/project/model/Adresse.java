@@ -1,6 +1,7 @@
 package fr.spring.eBoutique.project.model;
 
 
+import fr.spring.eBoutique.project.tools.BaseEntity;
 import sun.security.x509.GeneralName;
 
 import javax.persistence.*;
@@ -8,11 +9,11 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "adresse")
-public class Adresse implements Serializable {
+public class Adresse extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "number", nullable = false)
     private int numero;
@@ -41,12 +42,12 @@ public class Adresse implements Serializable {
     }
 
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

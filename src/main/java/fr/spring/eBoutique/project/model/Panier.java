@@ -2,13 +2,22 @@ package fr.spring.eBoutique.project.model;
 
 import fr.spring.eBoutique.project.tools.BaseEntity;
 
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
-
+@Entity
 public class Panier extends BaseEntity {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    private Map<Produit, Integer> myMap = new HashMap<Produit, Integer>();
+
+    @ElementCollection
+    @CollectionTable(name = "order_item_mapping",
+            joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
+    @MapKeyColumn(name = "item_name")
+    @Column(name = "panier")
+    private Map<Produit, Integer> myMap = new HashMap<>();
 
     public Panier() {
         super();
