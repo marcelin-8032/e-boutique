@@ -5,7 +5,7 @@ import fr.spring.eBoutique.project.model.Adresse;
 
 public interface IAdresseControl {
 
-    Adresse getAdresse(Integer idUtilisateur);
+    Adresse getAdresse(Long idUtilisateur);
 
     Adresse addAdresse(Adresse adresse, Integer idUtilisateur);
 

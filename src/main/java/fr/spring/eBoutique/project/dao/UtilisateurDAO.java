@@ -24,7 +24,7 @@ private Connection connexion= null;
 	}
 //-------------------------------------------------------------------------
 	@Override
-	public Utilisateur getUtilisateurById(Integer id) {
+	public Utilisateur getUtilisateurById(Long id) {
 		
 		Utilisateur utilisateur=null;
 		ResultSet rs=null;
@@ -32,7 +32,7 @@ private Connection connexion= null;
 		try {
 			String requete= "SELECT * FROM utilisateur WHERE id=?";
 			PreparedStatement ps=connexion.prepareStatement(requete);
-			ps.setInt(1, id);
+			ps.setLong(1, id);
 			rs=ps.executeQuery();
 			
 					if (rs !=null && rs.next()) {

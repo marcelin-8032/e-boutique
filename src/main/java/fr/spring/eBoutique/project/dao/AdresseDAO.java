@@ -22,13 +22,13 @@ private Connection connexion= null;
 //--------------------------------------------------------------------	
 
 	@Override
-	public Adresse getAdresse(Integer idUtilisateur) {
+	public Adresse getAdresse(Long idUtilisateur) {
 
 		Adresse adresse=null;
 		try {
 			String requete ="SELECT * FROM adresse WHERE utilisateur_id= ?";
 			PreparedStatement ps=connexion.prepareStatement(requete);
-			ps.setInt(1, idUtilisateur);
+			ps.setLong(1, idUtilisateur);
 			
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()) {
@@ -74,7 +74,7 @@ private Connection connexion= null;
 			
 			ResultSet rs =ps.getGeneratedKeys();
 			if (rs.next()) {
-				adresse.setId(rs.getInt(1));
+				adresse.setId(rs.getLong(1));
 			} 
 
 		} catch (SQLException e) {

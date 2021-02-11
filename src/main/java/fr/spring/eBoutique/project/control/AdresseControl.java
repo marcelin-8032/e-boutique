@@ -12,7 +12,7 @@ public class AdresseControl implements IAdresseControl {
 		
 	}
 	@Override
-	public Adresse getAdresse(Integer idUtilisateur) {
+	public Adresse getAdresse(Long idUtilisateur) {
 	
 		try {
 			return adreDAO.getAdresse(idUtilisateur);

@@ -13,7 +13,7 @@ public class UtilisateurControl implements IUtilisateurControl {
 	}
 
 	@Override
-	public Utilisateur getUtilisateurById(Integer id) {
+	public Utilisateur getUtilisateurById(Long id) {
 		try {
 			return utilasDao.getUtilisateurById(id);
 			

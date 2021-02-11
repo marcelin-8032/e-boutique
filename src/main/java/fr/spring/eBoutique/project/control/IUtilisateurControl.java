@@ -5,7 +5,7 @@ import fr.spring.eBoutique.project.model.Utilisateur;
 
 public interface IUtilisateurControl {
 
-    Utilisateur getUtilisateurById(Integer id);
+    Utilisateur getUtilisateurById(Long id);
 
     Utilisateur getUtilisateurByLogin(String login);
 
