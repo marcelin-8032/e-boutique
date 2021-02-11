@@ -12,7 +12,6 @@ public enum Categorie {
         this.Categorie = categorie;
     }
 
-
     public String getCategorie() {
         return Categorie;
     }

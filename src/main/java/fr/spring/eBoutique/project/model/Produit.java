@@ -2,20 +2,21 @@ package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
 import fr.spring.eBoutique.project.enums.Categorie;
+import fr.spring.eBoutique.project.tools.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 
 @Entity
-public class Produit implements Serializable {
+public class Produit extends BaseEntity {
 
     private static final long serialVersionUID = -1131908465506420255L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", nullable = false, unique = true)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name")
     private String nom;
@@ -36,7 +37,7 @@ public class Produit implements Serializable {
     public Produit() {
     }
 
-    public Produit(Integer id, String nom, String description, float prix, int remise, Categorie categorie) {
+    public Produit(Long id, String nom, String description, float prix, int remise, Categorie categorie) {
         this.id = id;
         this.nom = nom;
         this.description = description;
@@ -49,11 +50,11 @@ public class Produit implements Serializable {
         return serialVersionUID;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

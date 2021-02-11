@@ -2,6 +2,7 @@ package fr.spring.eBoutique.project.model;
 
 
 import com.sun.istack.NotNull;
+import fr.spring.eBoutique.project.tools.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,14 +16,14 @@ import java.util.List;
         @NamedQuery(name = "findCommandByName", query = "from Commande c where c.name=: name"),
         @NamedQuery(name = "findCommandeAll", query = "from Commande")
 })
-public class Commande implements Serializable {
+public class Commande extends BaseEntity {
 
     private static final long serialVersionUID = -189145911845731690L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, length = 255)
-    private Integer id;
+    private Long id;
 
     @NotNull
     @Column(name = "creation_date_time", nullable = false)
@@ -49,7 +50,7 @@ public class Commande implements Serializable {
     public Commande() {
     }
 
-    public Commande(Integer id, LocalDateTime dateCreation, LocalDateTime dateLivraison, float prix_total, Utilisateur utilisateur, List<LigneCommande> listeLignesCommande) {
+    public Commande(Long id, LocalDateTime dateCreation, LocalDateTime dateLivraison, float prix_total, Utilisateur utilisateur, List<LigneCommande> listeLignesCommande) {
         this.id = id;
         this.dateCreation = dateCreation;
         this.dateLivraison = dateLivraison;
@@ -62,11 +63,11 @@ public class Commande implements Serializable {
         return serialVersionUID;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

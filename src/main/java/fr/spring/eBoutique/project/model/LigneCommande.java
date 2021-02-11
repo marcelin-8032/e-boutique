@@ -1,18 +1,19 @@
 package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
+import fr.spring.eBoutique.project.tools.BaseEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class LigneCommande implements Serializable {
+public class LigneCommande extends BaseEntity {
 
     private static final long serialVersionUID = -3531853028647584857L;
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NotNull
     @Column(name="article")
@@ -21,7 +22,7 @@ public class LigneCommande implements Serializable {
 
     @NotNull
     @Column(name="quantite")
-    private Integer quantite;
+    private Long quantite;
 
     private Produit produit;
     private Commande commande;
@@ -30,26 +31,26 @@ public class LigneCommande implements Serializable {
         super();
     }
 
-    public LigneCommande(Integer quantite, Produit produit, Commande commande) {
+    public LigneCommande(Long quantite, Produit produit, Commande commande) {
         super();
         this.quantite = quantite;
         this.produit = produit;
         this.commande = commande;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getQuantite() {
+    public Long getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(Integer quantite) {
+    public void setQuantite(Long quantite) {
         this.quantite = quantite;
     }
 

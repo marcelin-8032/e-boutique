@@ -40,7 +40,7 @@ private Connection connexion= null;
 			
 					if (rs !=null && rs.next()) {
 						produit = new Produit();
-						produit.setId(rs.getInt("id"));
+						produit.setId(rs.getLong("id"));
 						produit.setNom(rs.getString("nom"));
 						produit.setDescription(rs.getString("description"));
 						produit.setPrix(rs.getFloat("prix"));
@@ -79,7 +79,7 @@ private Connection connexion= null;
 				listeProduitCtg = new ArrayList<Produit>();
 				while (rs.next()) {
 					Produit produit= new Produit();
-					produit.setId(rs.getInt("id"));
+					produit.setId(rs.getLong("id"));
 					produit.setNom(rs.getString("nom"));
 					produit.setDescription(rs.getString("description"));
 					produit.setPrix(rs.getFloat("prix"));
@@ -120,7 +120,7 @@ private Connection connexion= null;
 		
 		    ResultSet rs=ps.getGeneratedKeys();
 			if (rs.next()) {
-				produitadded.setId(rs.getInt(1));
+				produitadded.setId(rs.getLong(1));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();

@@ -1,6 +1,7 @@
 package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
+import fr.spring.eBoutique.project.tools.BaseEntity;
 import org.hibernate.annotations.Proxy;
 
 import javax.validation.constraints.Size;
@@ -13,15 +14,14 @@ import java.util.List;
 @Entity
 @Table(name = "utilisateur")
 @Proxy(lazy = false)
-public class Utilisateur implements Serializable {
+public class Utilisateur extends BaseEntity {
 
     private static final long serialVersionUID = 9126054084816010164L;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, length = 255)
-    private Integer id;
+    private Long id;
 
     @NotNull
     @Column(name = "login", length = 25, nullable = false, unique = true)
@@ -75,7 +75,7 @@ public class Utilisateur implements Serializable {
     }
 
 
-    public Utilisateur(Integer id, String login, String email, @Size(min = 8, max = 15) String modePass, String nom, String prenom, String date_de_naissance, int telephone, boolean actif, String role, List<Commande> listeCommandes, List<CartePaiement> listeCartesPaiement, Panier panier, Adresse adresse) {
+    public Utilisateur(Long id, String login, String email, @Size(min = 8, max = 15) String modePass, String nom, String prenom, String date_de_naissance, int telephone, boolean actif, String role, List<Commande> listeCommandes, List<CartePaiement> listeCartesPaiement, Panier panier, Adresse adresse) {
         this.id = id;
         this.login = login;
         this.email = email;
@@ -96,11 +96,11 @@ public class Utilisateur implements Serializable {
         return serialVersionUID;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

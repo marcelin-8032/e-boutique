@@ -37,8 +37,8 @@ public class LigneCommandeDAO implements ILigneCommandeDAO {
 				listeLigneCom = new ArrayList<LigneCommande>();
 				while (rs.next()) {
 					LigneCommande lignecommande= new LigneCommande();
-					lignecommande.setId(rs.getInt("id"));
-					lignecommande.setQuantite(rs.getInt("quantite"));
+					lignecommande.setId(rs.getLong("id"));
+					lignecommande.setQuantite(rs.getLong("quantite"));
 					
 					listeLigneCom.add(lignecommande);
 					}	
@@ -69,14 +69,14 @@ public class LigneCommandeDAO implements ILigneCommandeDAO {
 			String requete="INSERT INTO ligne_commande (quantite) VALUES (?)";
 		    PreparedStatement ps=connexion.prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
 		
-		    ps.setInt(1, ligneCommande.getQuantite());
+		    ps.setInt(1, Math.toIntExact(ligneCommande.getQuantite()));
 			ps.executeUpdate();
 			
 			ligneCommandAdded = ligneCommande;
 		
 		    ResultSet rs=ps.getGeneratedKeys();
 			if (rs.next()) {
-				ligneCommandAdded.setId(rs.getInt(1));
+				ligneCommandAdded.setId(rs.getLong(1));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();

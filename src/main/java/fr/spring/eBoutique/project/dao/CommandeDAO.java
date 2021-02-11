@@ -37,7 +37,7 @@ private Connection connexion= null;
 			
 					if (rs !=null && rs.next()) {
 						commande = new Commande();
-						commande.setId(rs.getInt("id"));
+						commande.setId(rs.getLong("id"));
 						commande.setDateCreation(LocalDateTime.parse(rs.getString("date_creation")));
 						commande.setDateLivraison(LocalDateTime.parse(rs.getString("date_livraison")));
 						commande.setPrix_total(rs.getInt("prix_total"));
@@ -72,7 +72,7 @@ private Connection connexion= null;
 		
 		    ResultSet rs=ps.getGeneratedKeys();
 			if (rs.next()) {
-				commandeAdded.setId(rs.getInt(1));
+				commandeAdded.setId(rs.getLong(1));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -102,7 +102,7 @@ private Connection connexion= null;
 				listeCommande = new ArrayList<Commande>();
 				while (rs.next()) {
 					Commande commande= new Commande();
-					commande.setId(rs.getInt("id"));
+					commande.setId(rs.getLong("id"));
 					commande.setDateCreation(LocalDateTime.parse(rs.getString("date_creation")));
 					commande.setDateLivraison(LocalDateTime.parse(rs.getString("date_livraison")));
 					commande.setPrix_total(rs.getFloat("prix_total"));

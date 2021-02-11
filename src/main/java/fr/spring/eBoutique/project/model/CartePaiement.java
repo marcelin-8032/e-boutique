@@ -1,6 +1,7 @@
 package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
+import fr.spring.eBoutique.project.tools.BaseEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -9,14 +10,14 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "carte_paiement")
-public class CartePaiement implements Serializable {
+public class CartePaiement extends BaseEntity {
 
     private static final long serialVersionUID = -4424444347307311208L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
 
     @NotNull
@@ -41,7 +42,7 @@ public class CartePaiement implements Serializable {
     public CartePaiement() {
     }
 
-    public CartePaiement(Integer id, @NotNull int numero, @NotNull LocalDate dateValidite, @Size(min = 3) @NotNull int cryptogramme, @NotNull Utilisateur utilisateur) {
+    public CartePaiement(Long id, @NotNull int numero, @NotNull LocalDate dateValidite, @Size(min = 3) @NotNull int cryptogramme, @NotNull Utilisateur utilisateur) {
         this.id = id;
         this.numero = numero;
         this.dateValidite = dateValidite;
@@ -52,11 +53,11 @@ public class CartePaiement implements Serializable {
         return serialVersionUID;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

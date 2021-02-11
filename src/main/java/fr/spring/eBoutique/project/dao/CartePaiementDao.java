@@ -38,7 +38,7 @@ private Connection connexion= null;
 			
 					if (rs !=null && rs.next()) {
 						cartePaiement = new CartePaiement();
-						cartePaiement.setId(rs.getInt("id"));
+						cartePaiement.setId(rs.getLong("id"));
 						cartePaiement.setNumero(rs.getInt("numero"));
 						cartePaiement.setDateValidite(LocalDate.parse(rs.getString("date_validite")));
 						cartePaiement.setCryptogramme(rs.getInt("cryptograme"));
@@ -74,7 +74,7 @@ private Connection connexion= null;
 				while (rs.next()) {
 					CartePaiement cartePaiement= new CartePaiement();
 					
-					cartePaiement.setId(rs.getInt("id"));
+					cartePaiement.setId(rs.getLong("id"));
 					cartePaiement.setNumero(rs.getInt("numero"));
 					cartePaiement.setDateValidite(LocalDate.parse(rs.getString("date_validite")));
 					cartePaiement.setCryptogramme(rs.getInt("cryptograme"));
@@ -113,7 +113,7 @@ private Connection connexion= null;
 			
 			    ResultSet rs=ps.getGeneratedKeys();
 				if (rs.next()) {
-					cartepaiementadded.setId(rs.getInt(1));
+					cartepaiementadded.setId(rs.getLong(1));
 				}
 			}catch(SQLException e) {
 				e.printStackTrace();

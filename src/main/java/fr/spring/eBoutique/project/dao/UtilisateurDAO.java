@@ -37,7 +37,7 @@ private Connection connexion= null;
 			
 					if (rs !=null && rs.next()) {
 						utilisateur = new Utilisateur();
-						utilisateur.setId(rs.getInt("id"));
+						utilisateur.setId(rs.getLong("id"));
 						utilisateur.setNom(rs.getString("nom"));
 						utilisateur.setPrenom(rs.getString("prenom"));
 						utilisateur.setDate_de_naissance(rs.getString("date_de_naissance"));
@@ -85,7 +85,7 @@ private Connection connexion= null;
 	
 	    ResultSet rs=ps.getGeneratedKeys();
 		if (rs.next()) {
-			utilisateurAdded.setId(rs.getInt(1));
+			utilisateurAdded.setId(rs.getLong(1));
 		}
 	}catch(SQLException e) {
 		e.printStackTrace();
@@ -142,7 +142,7 @@ private Connection connexion= null;
 			
 					if (rs !=null && rs.next()) {
 						utilisateur = new Utilisateur();
-						utilisateur.setId(rs.getInt("id"));
+						utilisateur.setId(rs.getLong("id"));
 						utilisateur.setNom(rs.getString("nom"));
 						utilisateur.setPrenom(rs.getString("prenom"));
 						utilisateur.setDate_de_naissance(rs.getString("age"));
@@ -180,7 +180,7 @@ private Connection connexion= null;
 			
 					if (rs !=null && rs.next()) {
 						utilisateur = new Utilisateur();
-						utilisateur.setId(rs.getInt("id"));
+						utilisateur.setId(rs.getLong("id"));
 						utilisateur.setNom(rs.getString("nom"));
 						utilisateur.setPrenom(rs.getString("prenom"));
 						utilisateur.setDate_de_naissance(rs.getString("age"));
