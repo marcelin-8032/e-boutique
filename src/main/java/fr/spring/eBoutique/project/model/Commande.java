@@ -1,98 +1,125 @@
 package fr.spring.eBoutique.project.model;
 
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
+@Table(name = "Commandes")
+@NamedQueries({
+        @NamedQuery(name = "findCommandByName", query = "from Commande c where c.name=: name"),
+        @NamedQuery(name = "findCommandeAll", query = "from Commande")
+})
 public class Commande implements Serializable {
 
+    private static final long serialVersionUID = -189145911845731690L;
 
-	private static final long serialVersionUID = -189145911845731690L;
-	
-	private Integer id;
-	private String dateCreation;
-	private String dateLivraison;
-	private float prix_total;
-	
-	private List<LigneCommande> listeLignesCommande;
-	private Utilisateur utilisateur;
-	
-	public Commande() {
-		super();
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, length = 255)
+    private Integer id;
 
-	public Commande(String dateCreation, String dateLivraison, float prix_total,
-			List<LigneCommande> listeLignesCommande, Utilisateur utilisateur) {
-		super();
-		this.dateCreation = dateCreation;
-		this.dateLivraison = dateLivraison;
-		this.prix_total = prix_total;
-		this.listeLignesCommande = listeLignesCommande;
-		this.utilisateur = utilisateur;
-	}
+    @NotNull
+    @Column(name = "creation_date_time", nullable = false)
+    private LocalDateTime dateCreation;
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
-	public Integer getId() {
-		return id;
-	}
+    @NotNull
+    @Column(name = "Deliveray_date_time", nullable = false)
+    private LocalDateTime dateLivraison;
 
-	public String getDateCreation() {
-		return dateCreation;
-	}
+    @NotNull
+    @Column(name = "Total_price", nullable = false)
+    private float prix_total;
 
-	public String getDateLivraison() {
-		return dateLivraison;
-	}
 
-	public float getPrix_total() {
-		return prix_total;
-	}
+    @ManyToOne
+    @JoinColumn(name = "commande_id")
+    private Utilisateur utilisateur;
 
-	public List<LigneCommande> getListeLignesCommande() {
-		return listeLignesCommande;
-	}
+    @ManyToOne
+    private List<LigneCommande> listeLignesCommande = new ArrayList<>();
 
-	public Utilisateur getUtilisateur() {
-		return utilisateur;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Commande() {
+    }
 
-	public void setDateCreation(String dateCreation) {
-		this.dateCreation = dateCreation;
-	}
+    public Commande(Integer id, LocalDateTime dateCreation, LocalDateTime dateLivraison, float prix_total, Utilisateur utilisateur, List<LigneCommande> listeLignesCommande) {
+        this.id = id;
+        this.dateCreation = dateCreation;
+        this.dateLivraison = dateLivraison;
+        this.prix_total = prix_total;
+        this.utilisateur = utilisateur;
+        this.listeLignesCommande = listeLignesCommande;
+    }
 
-	public void setDateLivraison(String dateLivraison) {
-		this.dateLivraison = dateLivraison;
-	}
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
-	public void setPrix_total(float prix_total) {
-		this.prix_total = prix_total;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setListeLignesCommande(List<LigneCommande> listeLignesCommande) {
-		this.listeLignesCommande = listeLignesCommande;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
-	}
+    public LocalDateTime getDateCreation() {
+        return dateCreation;
+    }
 
-	@Override
-	public String toString() {
-		return "Commande [id=" + id + ", dateCreation=" + dateCreation + ", dateLivraison=" + dateLivraison
-				+ ", prix_total=" + prix_total + ", listeLignesCommande=" + listeLignesCommande + ", utilisateur="
-				+ utilisateur + "]";
-	}
+    public void setDateCreation(LocalDateTime dateCreation) {
+        this.dateCreation = dateCreation;
+    }
 
-	
+    public LocalDateTime getDateLivraison() {
+        return dateLivraison;
+    }
 
-	
-	
+    public void setDateLivraison(LocalDateTime dateLivraison) {
+        this.dateLivraison = dateLivraison;
+    }
+
+    public float getPrix_total() {
+        return prix_total;
+    }
+
+    public void setPrix_total(float prix_total) {
+        this.prix_total = prix_total;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public List<LigneCommande> getListeLignesCommande() {
+        return listeLignesCommande;
+    }
+
+    public void setListeLignesCommande(List<LigneCommande> listeLignesCommande) {
+        this.listeLignesCommande = listeLignesCommande;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Commande{" +
+                "id=" + id +
+                ", dateCreation=" + dateCreation +
+                ", dateLivraison=" + dateLivraison +
+                ", prix_total=" + prix_total +
+                ", utilisateur=" + utilisateur +
+                ", listeLignesCommande=" + listeLignesCommande +
+                '}';
+    }
 }

@@ -9,8 +9,8 @@ public interface IArticleDAO {
 
 	public List<Article> getArticles(Integer idUtilisateur);
 	public Article addArticle(Article article);
-	public void removeArticle(Integer id);
-	public void clear (Integer idUtilisateur);
+	public void removeArticle(Long id);
+	public void clear (Long idUtilisateur);
 	
 
 }

@@ -1,11 +1,12 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.eboutique.project.dao.LigneCommandeDAO;
-import fr.eboutique.project.entity.LigneCommande;
+
+import fr.spring.eBoutique.project.dao.LigneCommandeDAO;
+import fr.spring.eBoutique.project.model.LigneCommande;
 
 import java.util.List;
 
-public class LigneCommandeControl implements fr.eboutique.project.metier.ILigneCommandeControl {
+public class LigneCommandeControl implements ILigneCommandeControl {
 	private LigneCommandeDAO ligneCD = new LigneCommandeDAO();
 	public LigneCommandeControl() {
 		

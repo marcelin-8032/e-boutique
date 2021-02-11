@@ -5,10 +5,13 @@ import fr.spring.eBoutique.project.model.Adresse;
 
 public interface IAdresseControl {
 
-	public Adresse getAdresse(Integer idUtilisateur);
-	public Adresse addAdresse(Adresse adresse, Integer idUtilisateur);
-	public void updateAdresse(Adresse adresse, Integer idUtilisateur);
-	public void removeAdresse(Integer idUtilisateur);
-	
-	
+    Adresse getAdresse(Integer idUtilisateur);
+
+    Adresse addAdresse(Adresse adresse, Integer idUtilisateur);
+
+    void updateAdresse(Adresse adresse, Integer idUtilisateur);
+
+    void removeAdresse(Integer idUtilisateur);
+
+
 }

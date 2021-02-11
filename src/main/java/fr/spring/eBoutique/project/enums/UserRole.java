@@ -1,4 +1,4 @@
-package fr.eboutique.project.enums;
+package fr.spring.eBoutique.project.enums;
 
 public enum UserRole {
 

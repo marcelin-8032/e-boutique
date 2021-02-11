@@ -1,9 +1,10 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.eboutique.project.dao.UtilisateurDAO;
-import fr.eboutique.project.entity.Utilisateur;
 
-public class UtilisateurControl implements fr.eboutique.project.metier.IUtilisateurControl {
+import fr.spring.eBoutique.project.dao.UtilisateurDAO;
+import fr.spring.eBoutique.project.model.Utilisateur;
+
+public class UtilisateurControl implements IUtilisateurControl {
 
 	
 	private UtilisateurDAO utilasDao = new UtilisateurDAO();

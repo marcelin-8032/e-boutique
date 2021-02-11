@@ -1,15 +1,19 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.eboutique.project.entity.Article;
+
+import fr.spring.eBoutique.project.model.Article;
 
 import java.util.List;
 
 public interface IArticleControl {
 
-	public List<Article> getArticles(Integer idUtilisateur);
-	public Article addArticle(Article article);
-	public void removeArticle(Integer id);
-	public void clear (Integer idUtilisateur);
-	
+    List<Article> getArticles(Long idUtilisateur);
+
+    Article addArticle(Article article);
+
+    void removeArticle(Long id);
+
+    void clear(Long idUtilisateur);
+
 
 }

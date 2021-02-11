@@ -1,11 +1,13 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.eboutique.project.dao.ProduitDAO;
-import fr.eboutique.project.entity.Produit;
+
+
+import fr.spring.eBoutique.project.dao.ProduitDAO;
+import fr.spring.eBoutique.project.model.Produit;
 
 import java.util.List;
 
-public class ProduitControl implements fr.eboutique.project.metier.IProduitControl {
+public class ProduitControl implements IProduitControl {
 
 	private ProduitDAO prDao = new ProduitDAO();
 	public ProduitControl() {

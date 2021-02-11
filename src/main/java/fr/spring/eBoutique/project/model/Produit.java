@@ -1,89 +1,99 @@
 package fr.spring.eBoutique.project.model;
 
+import com.sun.istack.NotNull;
+import fr.spring.eBoutique.project.enums.Categorie;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
-public class Produit implements Serializable{
-	
-	private static final long serialVersionUID = -1131908465506420255L;
-	
-	private Integer id;
-	private String nom;
-	private String description;
-	private float prix;
-	private int remise;
-	private String categorie;
-	
-	public Produit() {
-		super();
-	}
 
-	public Produit(String nom, String description, float prix, int remise, String categorie) {
-		super();
-		this.nom = nom;
-		this.description = description;
-		this.prix = prix;
-		this.remise = remise;
-		this.categorie = categorie;
-	}
+@Entity
+public class Produit implements Serializable {
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    private static final long serialVersionUID = -1131908465506420255L;
 
-	public Integer getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id", nullable = false, unique = true)
+    private Integer id;
 
-	public String getNom() {
-		return nom;
-	}
+    @Column(name = "name")
+    private String nom;
 
-	public String getDescription() {
-		return description;
-	}
+    @Column(name = "description")
+    private String description;
 
-	public float getPrix() {
-		return prix;
-	}
+    @NotNull
+    @Column(name = "price")
+    private float prix;
 
-	public int getRemise() {
-		return remise;
-	}
+    @Column(name = "discout")
+    private int remise;
 
-	public String getCategorie() {
-		return categorie;
-	}
+    @OneToOne
+    private Categorie categorie;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Produit() {
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    public Produit(Integer id, String nom, String description, float prix, int remise, Categorie categorie) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.prix = prix;
+        this.remise = remise;
+        this.categorie = categorie;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
-	public void setPrix(float prix) {
-		this.prix = prix;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setRemise(int remise) {
-		this.remise = remise;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setCategorie(String categorie) {
-		this.categorie = categorie;
-	}
+    public String getNom() {
+        return nom;
+    }
 
-	@Override
-	public String toString() {
-		return "Produit [id=" + id + ", nom=" + nom + ", description=" + description + ", prix=" + prix + ", remise="
-				+ remise + ", categorie=" + categorie + "]";
-	}
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-	
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public int getRemise() {
+        return remise;
+    }
+
+    public void setRemise(int remise) {
+        this.remise = remise;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
 }

@@ -1,7 +1,9 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.eboutique.project.dao.CartePaiementDao;
-import fr.eboutique.project.entity.CartePaiement;
+
+
+import fr.spring.eBoutique.project.dao.CartePaiementDao;
+import fr.spring.eBoutique.project.model.CartePaiement;
 
 import java.util.List;
 

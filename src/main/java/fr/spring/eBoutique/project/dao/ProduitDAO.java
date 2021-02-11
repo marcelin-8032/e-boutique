@@ -3,6 +3,7 @@ package fr.spring.eBoutique.project.dao;
 
 
 import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
+import fr.spring.eBoutique.project.enums.Categorie;
 import fr.spring.eBoutique.project.model.Produit;
 
 import java.sql.*;
@@ -44,7 +45,7 @@ private Connection connexion= null;
 						produit.setDescription(rs.getString("description"));
 						produit.setPrix(rs.getFloat("prix"));
 						produit.setRemise(rs.getInt("remise"));
-						produit.setCategorie(rs.getString("categorie"));
+						produit.setCategorie(Categorie.valueOf(rs.getString("categorie")));
 						}	
 					
 		} catch (Exception e) {
@@ -83,7 +84,7 @@ private Connection connexion= null;
 					produit.setDescription(rs.getString("description"));
 					produit.setPrix(rs.getFloat("prix"));
 					produit.setRemise(rs.getInt("remise"));
-					produit.setCategorie(rs.getString("categorie"));
+					produit.setCategorie(Categorie.valueOf(rs.getString("categorie")));
 					listeProduitCtg.add(produit);
 					}	
 				}
@@ -112,7 +113,7 @@ private Connection connexion= null;
 			ps.setString(2, produit.getDescription());	
 			ps.setFloat(3, produit.getPrix());
 			ps.setInt(4, produit.getRemise());
-			ps.setString(5, produit.getCategorie());
+			ps.setString(5, String.valueOf(produit.getCategorie()));
 			ps.executeUpdate();
 			
 			produitadded = produit;
@@ -146,7 +147,7 @@ private Connection connexion= null;
 			ps.setString(2, produit.getDescription());	
 			ps.setFloat(3, produit.getPrix());
 			ps.setInt(4, produit.getRemise());
-			ps.setString(5, produit.getCategorie());
+			ps.setString(5, String.valueOf(produit.getCategorie()));
 			ps.executeUpdate();
 
 		} catch (SQLException e) {

@@ -5,6 +5,7 @@ import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
 import fr.spring.eBoutique.project.model.Commande;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +38,8 @@ private Connection connexion= null;
 					if (rs !=null && rs.next()) {
 						commande = new Commande();
 						commande.setId(rs.getInt("id"));
-						commande.setDateCreation(rs.getString("date_creation"));
-						commande.setDateLivraison(rs.getString("date_livraison"));
+						commande.setDateCreation(LocalDateTime.parse(rs.getString("date_creation")));
+						commande.setDateLivraison(LocalDateTime.parse(rs.getString("date_livraison")));
 						commande.setPrix_total(rs.getInt("prix_total"));
 						}	
 		} catch (Exception e) {
@@ -63,8 +64,8 @@ private Connection connexion= null;
 		try {
 			String requete="INSERT INTO commande (date_creation, date_livraison, prix_total) VALUES (?,?,?)";
 		    PreparedStatement ps=connexion.prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
-		    ps.setString(1, commande.getDateCreation());
-			ps.setString(2, commande.getDateLivraison());	
+		    ps.setString(1, String.valueOf(commande.getDateCreation()));
+			ps.setString(2, String.valueOf(commande.getDateLivraison()));
 			ps.setFloat(3, commande.getPrix_total());
 			ps.executeUpdate();
 			commandeAdded = commande;
@@ -102,8 +103,8 @@ private Connection connexion= null;
 				while (rs.next()) {
 					Commande commande= new Commande();
 					commande.setId(rs.getInt("id"));
-					commande.setDateCreation(rs.getString("date_creation"));
-					commande.setDateLivraison(rs.getString("date_livraison"));
+					commande.setDateCreation(LocalDateTime.parse(rs.getString("date_creation")));
+					commande.setDateLivraison(LocalDateTime.parse(rs.getString("date_livraison")));
 					commande.setPrix_total(rs.getFloat("prix_total"));
 					listeCommande.add(commande);
 					}	

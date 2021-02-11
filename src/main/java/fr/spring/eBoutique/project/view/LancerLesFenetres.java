@@ -71,7 +71,7 @@ public class LancerLesFenetres extends AbstractAction {
 			utilisateur.setLogin(enregis.getLoginField().getText());
 			utilisateur.setNom(enregis.getNomField().getText());
 			utilisateur.setPrenom(enregis.getPrenomField().getText());
-			utilisateur.setAge(age);
+			//utilisateur.setDate_de_naissance();
 			utilisateur.setEmail(enregis.getEmailField().getText());
 			utilisateur.setModePass(enregis.getModePasseField().getText());
 			utilisateur.setRole(enregis.getComboBoxRole().toString());

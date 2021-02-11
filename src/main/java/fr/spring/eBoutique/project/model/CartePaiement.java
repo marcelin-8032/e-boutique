@@ -1,63 +1,107 @@
 package fr.spring.eBoutique.project.model;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDate;
 
-public class CartePaiement implements Serializable{
+@Entity
+@Table(name = "carte_paiement")
+public class CartePaiement implements Serializable {
 
-	private static final long serialVersionUID = -4424444347307311208L;
-	
-	private Integer id;
-	private int numero;
-	private String dateValidite;
-	private int cryptogramme;
-	
-	public CartePaiement() {
-		super();
-	}
+    private static final long serialVersionUID = -4424444347307311208L;
 
-	public CartePaiement(int numero, String dateValidite, int cryptogramme) {
-		super();
-		this.numero = numero;
-		this.dateValidite = dateValidite;
-		this.cryptogramme = cryptogramme;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public String getDateValidite() {
-		return dateValidite;
-	}
-
-	public int getCryptogramme() {
-		return cryptogramme;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	public void setDateValidite(String dateValidite) {
-		this.dateValidite = dateValidite;
-	}
-
-	public void setCryptogramme(int cryptogramme) {
-		this.cryptogramme = cryptogramme;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
 
 
+    @NotNull
+    @Column(name = "carte_numero", nullable = false, unique = true)
+    private int numero;
+
+
+    @NotNull
+    @Column(name = "date_validite")
+    private LocalDate dateValidite;
+
+
+    @NotNull
+    @Column(name = "crypto_number")
+    @Size(min = 3)
+    private int cryptogramme;
+
+    @NotNull
+    @OneToMany
+    private Utilisateur utilisateur;
+
+    public CartePaiement() {
+    }
+
+    public CartePaiement(Integer id, @NotNull int numero, @NotNull LocalDate dateValidite, @Size(min = 3) @NotNull int cryptogramme, @NotNull Utilisateur utilisateur) {
+        this.id = id;
+        this.numero = numero;
+        this.dateValidite = dateValidite;
+        this.cryptogramme = cryptogramme;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public LocalDate getDateValidite() {
+        return dateValidite;
+    }
+
+    public void setDateValidite(LocalDate dateValidite) {
+        this.dateValidite = dateValidite;
+    }
+
+    public int getCryptogramme() {
+        return cryptogramme;
+    }
+
+    public void setCryptogramme(int cryptogramme) {
+        this.cryptogramme = cryptogramme;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    @Override
+    public String toString() {
+        return "CartePaiement{" +
+                "id=" + id +
+                ", numero=" + numero +
+                ", dateValidite=" + dateValidite +
+                ", cryptogramme=" + cryptogramme +
+                ", utilisateur=" + utilisateur +
+                '}';
+    }
 }
+
+

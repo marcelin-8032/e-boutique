@@ -5,6 +5,7 @@ import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
 import fr.spring.eBoutique.project.model.CartePaiement;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ private Connection connexion= null;
 						cartePaiement = new CartePaiement();
 						cartePaiement.setId(rs.getInt("id"));
 						cartePaiement.setNumero(rs.getInt("numero"));
-						cartePaiement.setDateValidite(rs.getString("date_validite"));
+						cartePaiement.setDateValidite(LocalDate.parse(rs.getString("date_validite")));
 						cartePaiement.setCryptogramme(rs.getInt("cryptograme"));
 						}	
 		} catch (Exception e) {
@@ -75,7 +76,7 @@ private Connection connexion= null;
 					
 					cartePaiement.setId(rs.getInt("id"));
 					cartePaiement.setNumero(rs.getInt("numero"));
-					cartePaiement.setDateValidite(rs.getString("date_validite"));
+					cartePaiement.setDateValidite(LocalDate.parse(rs.getString("date_validite")));
 					cartePaiement.setCryptogramme(rs.getInt("cryptograme"));
 					listecarteP.add(cartePaiement);
 					}	
@@ -104,7 +105,7 @@ private Connection connexion= null;
 			    PreparedStatement ps=connexion.prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
 			    
 			    ps.setInt(1, cartePaiement.getNumero());
-				ps.setString(2, cartePaiement.getDateValidite());	
+				ps.setString(2, String.valueOf(cartePaiement.getDateValidite()));
 				ps.setInt(3, cartePaiement.getCryptogramme());
 				
 				ps.executeUpdate();

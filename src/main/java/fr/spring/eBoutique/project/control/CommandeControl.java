@@ -1,7 +1,8 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.eboutique.project.dao.CommandeDAO;
-import fr.eboutique.project.entity.Commande;
+
+import fr.spring.eBoutique.project.dao.CommandeDAO;
+import fr.spring.eBoutique.project.model.Commande;
 
 import java.util.List;
 

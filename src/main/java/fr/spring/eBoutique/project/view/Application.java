@@ -1,6 +1,7 @@
 package fr.spring.eBoutique.project.view;
 
-import fr.eboutique.project.enums.UserRole;
+
+import fr.spring.eBoutique.project.enums.UserRole;
 
 import javax.swing.*;
 import java.awt.*;

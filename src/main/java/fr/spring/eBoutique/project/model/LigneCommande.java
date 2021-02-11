@@ -1,13 +1,28 @@
 package fr.spring.eBoutique.project.model;
 
-import java.io.Serializable;
+import com.sun.istack.NotNull;
 
+import javax.persistence.*;
+import java.io.Serializable;
+@Entity
 public class LigneCommande implements Serializable {
 
     private static final long serialVersionUID = -3531853028647584857L;
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotNull
+    @Column(name="article")
+    @ManyToOne
+    private Article article;
+
+    @NotNull
+    @Column(name="quantite")
     private Integer quantite;
+
     private Produit produit;
     private Commande commande;
 

@@ -1,7 +1,7 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.eboutique.project.dao.ArticleDAO;
-import fr.eboutique.project.entity.Article;
+import fr.spring.eBoutique.project.dao.ArticleDAO;
+import fr.spring.eBoutique.project.model.Article;
 
 import java.util.List;
 
@@ -14,10 +14,12 @@ public class ArticleControl implements IArticleControl {
 	}
 	
 	@Override
-	public List<Article> getArticles(Integer idUtilisateur) {
+	public List<Article> getArticles(Long idUtilisateur) {
 		
 		try {
 			return aDao.getArticles(idUtilisateur);
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,7 +38,7 @@ public class ArticleControl implements IArticleControl {
 	}
 
 	@Override
-	public void removeArticle(Integer id) {
+	public void removeArticle(Long id) {
 		
 		try {
 			aDao.removeArticle(id);
@@ -47,7 +49,7 @@ public class ArticleControl implements IArticleControl {
 	}
 
 	@Override
-	public void clear(Integer idUtilisateur) {
+	public void clear(Long idUtilisateur) {
 		
 			try {
 				aDao.clear(idUtilisateur);

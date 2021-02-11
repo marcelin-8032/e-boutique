@@ -1,14 +1,15 @@
 package fr.spring.eBoutique.project.dao;
 
-import fr.eboutique.project.connectionBDD.DataSourceConnexion;
-import fr.eboutique.project.entity.Article;
+
+import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
+import fr.spring.eBoutique.project.model.Article;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ArticleDAO implements fr.eboutique.project.dao.IArticleDAO {
+public class ArticleDAO implements IArticleDAO {
 
 private Connection connexion= null;
 	
@@ -22,8 +23,7 @@ private Connection connexion= null;
 		}
 	}
 //---------------------------------------------------------------------------	
-	@Override
-	public List<Article> getArticles(Integer idUtilisateur) {
+	public List<Article> getArticles(Long idUtilisateur) {
 	
 		List<Article> listeLigneCom = null;
 		ResultSet rs=null;
@@ -37,7 +37,7 @@ private Connection connexion= null;
 				listeLigneCom = new ArrayList<Article>();
 				while (rs.next()) {
 					Article article= new Article();
-					article.setId(rs.getInt("id"));
+					article.setId((long) rs.getInt("id"));
 					article.setQuantite(rs.getInt("quantite"));
 					
 					listeLigneCom.add(article);
@@ -56,7 +56,13 @@ private Connection connexion= null;
 		}
 		return listeLigneCom;
 }
-//-------------------------------------------------------------------------	
+
+	@Override
+	public List<Article> getArticles(Integer idUtilisateur) {
+		return null;
+	}
+
+	//-------------------------------------------------------------------------
 	@Override
 	public Article addArticle(Article article) {
 
@@ -72,7 +78,7 @@ private Connection connexion= null;
 			
 			    ResultSet rs=ps.getGeneratedKeys();
 				if (rs.next()) {
-					articleadded.setId(rs.getInt(1));
+					articleadded.setId((long) rs.getInt(1));
 				}
 			}catch(SQLException e) {
 				e.printStackTrace();
@@ -89,12 +95,12 @@ private Connection connexion= null;
 		}
 //-------------------------------------------------------------------------
 	@Override
-	public void removeArticle(Integer id) {
+	public void removeArticle(Long id) {
 		
 		try {			
 			String requete="DELETE FROM article Where id= ?";
 			PreparedStatement ps=connexion.prepareStatement(requete);
-			ps.setInt(1, id);
+			ps.setInt(1, Math.toIntExact(id));
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -112,11 +118,11 @@ private Connection connexion= null;
 }
 //-------------------------------------------------------------------------
 	@Override
-	public void clear(Integer idUtilisateur) {
+	public void clear(Long idUtilisateur) {
 		try {			
 			String requete="DELETE FROM article Where utilisateur_id= ?";
 			PreparedStatement ps=connexion.prepareStatement(requete);
-			ps.setInt(1, idUtilisateur);
+			ps.setInt(1, Math.toIntExact(idUtilisateur));
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {

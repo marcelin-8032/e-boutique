@@ -40,11 +40,11 @@ private Connection connexion= null;
 						utilisateur.setId(rs.getInt("id"));
 						utilisateur.setNom(rs.getString("nom"));
 						utilisateur.setPrenom(rs.getString("prenom"));
-						utilisateur.setAge(rs.getInt("age"));
+						utilisateur.setDate_de_naissance(rs.getString("date_de_naissance"));
 						utilisateur.setActif(rs.getBoolean("actif"));
 						utilisateur.setEmail(rs.getString("email"));
 						utilisateur.setModePass(rs.getString("modePass"));
-						utilisateur.setTelephone(rs.getString("telephone"));
+						utilisateur.setTelephone(Integer.parseInt(rs.getString("telephone")));
 						}	
 					AdresseDAO adresseDAO= new AdresseDAO();
 					Adresse adresse =adresseDAO.getAdresse(id);
@@ -75,10 +75,10 @@ private Connection connexion= null;
 	
 	    ps.setString(1, utilisateur.getNom());
 		ps.setString(2, utilisateur.getPrenom());	
-		ps.setInt(3, utilisateur.getAge());
+		ps.setInt(3, Integer.parseInt(utilisateur.getDate_de_naissance()));
 		ps.setString(4, utilisateur.getEmail());
 		ps.setString(5, utilisateur.getModePass());
-		ps.setString(6, utilisateur.getTelephone());
+		ps.setString(6, String.valueOf(utilisateur.getTelephone()));
 		ps.executeUpdate();
 		
 		utilisateurAdded = utilisateur;
@@ -110,10 +110,10 @@ private Connection connexion= null;
 			
 			ps.setString(1, utilisateur.getNom());
 			ps.setString(2, utilisateur.getPrenom());
-			ps.setInt(3, utilisateur.getAge());
+			ps.setInt(3, Integer.parseInt(utilisateur.getDate_de_naissance()));
 			ps.setString(4, utilisateur.getEmail());
 			ps.setString(5, utilisateur.getModePass());
-			ps.setString(6, utilisateur.getTelephone());
+			ps.setString(6, String.valueOf(utilisateur.getTelephone()));
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
@@ -145,11 +145,11 @@ private Connection connexion= null;
 						utilisateur.setId(rs.getInt("id"));
 						utilisateur.setNom(rs.getString("nom"));
 						utilisateur.setPrenom(rs.getString("prenom"));
-						utilisateur.setAge(rs.getInt("age"));
+						utilisateur.setDate_de_naissance(rs.getString("age"));
 						utilisateur.setActif(rs.getBoolean("actif"));
 						utilisateur.setEmail(rs.getString("email"));
 						utilisateur.setModePass(rs.getString("modePass"));
-						utilisateur.setTelephone(rs.getString("telephone"));
+						utilisateur.setTelephone(Integer.parseInt(rs.getString("telephone")));
 						utilisateur.setRole(rs.getString("role"));
 						}	
 					
@@ -183,11 +183,11 @@ private Connection connexion= null;
 						utilisateur.setId(rs.getInt("id"));
 						utilisateur.setNom(rs.getString("nom"));
 						utilisateur.setPrenom(rs.getString("prenom"));
-						utilisateur.setAge(rs.getInt("age"));
+						utilisateur.setDate_de_naissance(rs.getString("age"));
 						utilisateur.setActif(rs.getBoolean("actif"));
 						utilisateur.setEmail(rs.getString("email"));
 						utilisateur.setModePass(rs.getString("modePass"));
-						utilisateur.setTelephone(rs.getString("telephone"));
+						utilisateur.setTelephone(Integer.parseInt(rs.getString("telephone")));
 						utilisateur.setRole(rs.getString("role"));
 						}	
 					
