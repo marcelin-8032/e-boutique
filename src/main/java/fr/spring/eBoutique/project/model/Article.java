@@ -1,10 +1,9 @@
 package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
-import fr.spring.eBoutique.project.tools.BaseEntity;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 @Entity
 public class Article extends BaseEntity {
 

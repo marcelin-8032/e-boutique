@@ -1,14 +1,16 @@
 package fr.spring.eBoutique.project.control;
 
 
-import fr.spring.eBoutique.project.dao.CommandeDAO;
+import fr.spring.eBoutique.project.dao.CommandeDAOImpl;
 import fr.spring.eBoutique.project.model.Commande;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+@Controller
 public class CommandeControl implements ICommandeControl {
 
-	private CommandeDAO commdao = new CommandeDAO();
+	private CommandeDAOImpl commdao = new CommandeDAOImpl();
 	
 	public CommandeControl() {
 		

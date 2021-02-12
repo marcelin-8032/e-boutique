@@ -2,14 +2,16 @@ package fr.spring.eBoutique.project.control;
 
 
 
-import fr.spring.eBoutique.project.dao.ProduitDAO;
+import fr.spring.eBoutique.project.dao.ProduitDAOImpl;
 import fr.spring.eBoutique.project.model.Produit;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+@Controller
 public class ProduitControl implements IProduitControl {
 
-	private ProduitDAO prDao = new ProduitDAO();
+	private ProduitDAOImpl prDao = new ProduitDAOImpl();
 	public ProduitControl() {
 	}
 	

@@ -1,13 +1,12 @@
-package fr.spring.eBoutique.project.dao;
-
+package fr.spring.eBoutique.project.service;
 
 import fr.spring.eBoutique.project.model.Produit;
 
 import java.util.List;
 
-public interface IProduitDAO {
+public interface IProduitService {
 
-    Produit getProduit(Integer id);
+    Produit getProduit(Long id);
 
     List<Produit> getProduitsByCategorie(String categorie);
 
@@ -15,6 +14,7 @@ public interface IProduitDAO {
 
     void updateProduit(Produit produit);
 
-    void removeProduit(Integer id);
+    void removeProduit(Long id);
+
 
 }

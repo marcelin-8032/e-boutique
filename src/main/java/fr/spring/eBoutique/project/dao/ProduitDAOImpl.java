@@ -5,17 +5,24 @@ package fr.spring.eBoutique.project.dao;
 import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
 import fr.spring.eBoutique.project.enums.Categorie;
 import fr.spring.eBoutique.project.model.Produit;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository(value = "ProduitDao")
+public class ProduitDAOImpl implements IProduitDAO {
 
-public class ProduitDAO implements IProduitDAO {
+@Autowired
+	private SessionFactory sessionFactory;
+
 
 private Connection connexion= null;
 	
-	public ProduitDAO() {
+	public ProduitDAOImpl() {
 		if (connexion == null) {
 			try {
 				connexion= DataSourceConnexion.getInstance().getConnection();

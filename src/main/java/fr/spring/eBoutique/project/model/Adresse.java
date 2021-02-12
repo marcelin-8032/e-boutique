@@ -1,11 +1,7 @@
 package fr.spring.eBoutique.project.model;
 
 
-import fr.spring.eBoutique.project.tools.BaseEntity;
-import sun.security.x509.GeneralName;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "adresse")

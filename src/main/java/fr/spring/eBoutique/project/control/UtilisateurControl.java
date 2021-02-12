@@ -1,13 +1,15 @@
 package fr.spring.eBoutique.project.control;
 
 
-import fr.spring.eBoutique.project.dao.UtilisateurDAO;
+import fr.spring.eBoutique.project.dao.UtilisateurDAOImpl;
 import fr.spring.eBoutique.project.model.Utilisateur;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class UtilisateurControl implements IUtilisateurControl {
 
 	
-	private UtilisateurDAO utilasDao = new UtilisateurDAO();
+	private UtilisateurDAOImpl utilasDao = new UtilisateurDAOImpl();
 	public UtilisateurControl() {
 		
 	}

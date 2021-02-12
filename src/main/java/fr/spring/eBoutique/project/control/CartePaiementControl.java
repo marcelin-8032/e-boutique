@@ -2,14 +2,16 @@ package fr.spring.eBoutique.project.control;
 
 
 
-import fr.spring.eBoutique.project.dao.CartePaiementDao;
+import fr.spring.eBoutique.project.dao.CartePaiementDaoImpl;
 import fr.spring.eBoutique.project.model.CartePaiement;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+@Controller
 public class CartePaiementControl implements ICartePaiementControl {
 
-	private CartePaiementDao carteBlue= new CartePaiementDao();
+	private CartePaiementDaoImpl carteBlue= new CartePaiementDaoImpl();
 	public  CartePaiementControl() {
 		
 	}

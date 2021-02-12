@@ -1,12 +1,11 @@
 package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
-import fr.spring.eBoutique.project.tools.BaseEntity;
 import org.hibernate.annotations.Proxy;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,7 @@ public class Utilisateur extends BaseEntity {
 
     @NotNull
     @Column(name = "email", nullable = false, unique = true)
+    @Email
     private String email;
 
 

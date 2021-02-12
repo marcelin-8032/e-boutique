@@ -1,13 +1,12 @@
-package fr.spring.eBoutique.project.dao;
-
+package fr.spring.eBoutique.project.service;
 
 import fr.spring.eBoutique.project.model.Article;
 
 import java.util.List;
 
-public interface IArticleDAO {
+public interface IArticleService {
 
-    List<Article> getArticles(Integer idUtilisateur);
+    List<Article> getArticles(Long idUtilisateur);
 
     Article addArticle(Article article);
 

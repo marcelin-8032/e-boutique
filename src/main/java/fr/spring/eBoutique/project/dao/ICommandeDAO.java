@@ -7,8 +7,10 @@ import java.util.List;
 
 public interface ICommandeDAO {
 
-		public Commande getCommande(Integer idUtilisatuer);
-		public Commande addCommande (Commande commande);
-		List<Commande> getCommandes(Integer idUtilisatuer);
-	
+    Commande getCommande(Integer idUtilisatuer);
+
+    Commande addCommande(Commande commande);
+
+    List<Commande> getCommandes(Integer idUtilisatuer);
+
 }

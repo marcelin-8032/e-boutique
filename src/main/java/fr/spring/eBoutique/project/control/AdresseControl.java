@@ -1,19 +1,23 @@
 package fr.spring.eBoutique.project.control;
 
 
-import fr.spring.eBoutique.project.dao.AdresseDAO;
+import fr.spring.eBoutique.project.dao.AdresseDAOImpl;
 import fr.spring.eBoutique.project.model.Adresse;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class AdresseControl implements IAdresseControl {
 
-	private AdresseDAO adreDAO= new AdresseDAO();
+	private AdresseDAOImpl adreDAO= new AdresseDAOImpl();
 	
 	public AdresseControl() {
-		
-	}
+			}
+
+
 	@Override
+	@RequestMapping
 	public Adresse getAdresse(Long idUtilisateur) {
-	
 		try {
 			return adreDAO.getAdresse(idUtilisateur);
 		} catch (Exception e) {

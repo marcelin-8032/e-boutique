@@ -1,7 +1,5 @@
 package fr.spring.eBoutique.project.model;
 
-import fr.spring.eBoutique.project.tools.BaseEntity;
-
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;

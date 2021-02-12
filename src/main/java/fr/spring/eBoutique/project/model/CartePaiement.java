@@ -1,11 +1,9 @@
 package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
-import fr.spring.eBoutique.project.tools.BaseEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
@@ -22,7 +20,7 @@ public class CartePaiement extends BaseEntity {
 
     @NotNull
     @Column(name = "carte_numero", nullable = false, unique = true)
-    private int numero;
+          private int numero;
 
 
     @NotNull
@@ -61,7 +59,7 @@ public class CartePaiement extends BaseEntity {
         this.id = id;
     }
 
-    public int getNumero() {
+        public int getNumero() {
         return numero;
     }
 

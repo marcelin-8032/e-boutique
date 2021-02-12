@@ -5,11 +5,11 @@ import fr.spring.eBoutique.project.model.Utilisateur;
 
 public interface IUtilisateurDAO<Login> {
 
-	public Utilisateur getUtilisateurById (Long id);
-	public Utilisateur getUtilisateurByLogin(String login);
-	public Utilisateur getUtilisateurByEmail(String email);
-	public Utilisateur  addUtilisateur(Utilisateur utilisateur);
-	public void updateUtilisateur(Utilisateur utilisateur);
-	public void seDesinscrireUtilisateur (Integer id);
-	public boolean seConnecter (String peseudo, String password);
+	Utilisateur getUtilisateurById (Long id);
+	Utilisateur getUtilisateurByLogin(String login);
+	Utilisateur getUtilisateurByEmail(String email);
+	Utilisateur  addUtilisateur(Utilisateur utilisateur);
+	void updateUtilisateur(Utilisateur utilisateur);
+	void seDesinscrireUtilisateur (Integer id);
+	boolean seConnecter (String peseudo, String password);
 }

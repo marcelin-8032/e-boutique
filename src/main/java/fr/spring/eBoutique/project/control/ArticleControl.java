@@ -1,13 +1,14 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.spring.eBoutique.project.dao.ArticleDAO;
+import fr.spring.eBoutique.project.dao.ArticleDAOImpl;
 import fr.spring.eBoutique.project.model.Article;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
-
+@Controller
 public class ArticleControl implements IArticleControl {
 
-	private ArticleDAO aDao = new ArticleDAO();
+	private ArticleDAOImpl aDao = new ArticleDAOImpl();
 	
 	 public ArticleControl() {
 		

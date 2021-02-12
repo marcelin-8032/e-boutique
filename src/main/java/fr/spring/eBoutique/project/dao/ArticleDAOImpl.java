@@ -3,17 +3,41 @@ package fr.spring.eBoutique.project.dao;
 
 import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
 import fr.spring.eBoutique.project.model.Article;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
+public class ArticleDAOImpl implements IArticleDAO {
 
-public class ArticleDAO implements IArticleDAO {
+
+	@Autowired
+	private SessionFactory sessionFactory;
+
+
+
+
+
+
+
+
+
+
 
 private Connection connexion= null;
-	
-	public ArticleDAO() {
+
+
+
+
+
+
+
+
+	public ArticleDAOImpl() {
 		if (connexion == null) {
 			try {
 				connexion= DataSourceConnexion.getInstance().getConnection();

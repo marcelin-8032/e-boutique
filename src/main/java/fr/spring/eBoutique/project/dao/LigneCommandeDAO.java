@@ -3,13 +3,23 @@ package fr.spring.eBoutique.project.dao;
 
 import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
 import fr.spring.eBoutique.project.model.LigneCommande;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Repository
 public class LigneCommandeDAO implements ILigneCommandeDAO {
-	
+
+
+	@Autowired
+	private SessionFactory sessionFactory;
+
+
 		private Connection connexion= null;
 			
 			public LigneCommandeDAO() {
