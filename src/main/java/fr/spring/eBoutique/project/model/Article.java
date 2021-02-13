@@ -43,43 +43,4 @@ public class Article extends BaseEntity {
         this.prix_unit = prix_unit;
     }
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public Integer getQuantite() {
-//        return quantite;
-//    }
-//
-//    public void setQuantite(Integer quantite) {
-//        this.quantite = quantite;
-//    }
-//
-//    public Produit getProduit() {
-//        return produit;
-//    }
-//
-//    public void setProduit(Produit produit) {
-//        this.produit = produit;
-//    }
-//
-//    public Utilisateur getUtilisateur() {
-//        return utilisateur;
-//    }
-//
-//    public void setUtilisateur(Utilisateur utilisateur) {
-//        this.utilisateur = utilisateur;
-//    }
-//
-//    public Float getPrix_unit() {
-//        return prix_unit;
-//    }
-//
-//    public void setPrix_unit(Float prix_unit) {
-//        this.prix_unit = prix_unit;
-//    }
 }
