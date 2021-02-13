@@ -3,7 +3,7 @@ package fr.spring.eBoutique.project.dao;
 
 
 import fr.spring.eBoutique.project.BDD.DataSourceConnexion;
-import fr.spring.eBoutique.project.enums.Categorie;
+import fr.spring.eBoutique.project.model.Categorie;
 import fr.spring.eBoutique.project.model.Produit;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
