@@ -1,5 +1,8 @@
-package fr.spring.eBoutique.project.enums;
+package fr.spring.eBoutique.project.model;
 
+import lombok.Getter;
+
+@Getter
 public enum Categorie {
 
     Electronique("Electronique"),
@@ -12,8 +15,5 @@ public enum Categorie {
         this.Categorie = categorie;
     }
 
-    public String getCategorie() {
-        return Categorie;
-    }
 
 }

@@ -1,8 +1,14 @@
 package fr.spring.eBoutique.project.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
+
+@Getter
+@Setter
 @Entity
 public class Panier extends BaseEntity {
     @Id
@@ -27,21 +33,7 @@ public class Panier extends BaseEntity {
         this.myMap = myMap;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Map<Produit, Integer> getMyMap() {
-        return myMap;
-    }
-
-    public void setMyMap(Map<Produit, Integer> myMap) {
-        this.myMap = myMap;
-    }
 
     @Override
     public String toString() {

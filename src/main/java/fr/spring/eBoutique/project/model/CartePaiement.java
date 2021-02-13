@@ -1,11 +1,16 @@
 package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
+
+@Setter
+@Getter
 @Entity
 @Table(name = "carte_paiement")
 public class CartePaiement extends BaseEntity {
@@ -20,7 +25,7 @@ public class CartePaiement extends BaseEntity {
 
     @NotNull
     @Column(name = "carte_numero", nullable = false, unique = true)
-          private int numero;
+    private int numero;
 
 
     @NotNull
@@ -45,50 +50,6 @@ public class CartePaiement extends BaseEntity {
         this.numero = numero;
         this.dateValidite = dateValidite;
         this.cryptogramme = cryptogramme;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-        public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public LocalDate getDateValidite() {
-        return dateValidite;
-    }
-
-    public void setDateValidite(LocalDate dateValidite) {
-        this.dateValidite = dateValidite;
-    }
-
-    public int getCryptogramme() {
-        return cryptogramme;
-    }
-
-    public void setCryptogramme(int cryptogramme) {
-        this.cryptogramme = cryptogramme;
-    }
-
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
-    }
-
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
     }
 
     @Override

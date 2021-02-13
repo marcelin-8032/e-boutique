@@ -1,14 +1,16 @@
 package fr.spring.eBoutique.project.model;
 
 import com.sun.istack.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
+
+@Setter
+@Getter
 @Entity
 public class LigneCommande extends BaseEntity {
-
-    private static final long serialVersionUID = -3531853028647584857L;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,41 +39,6 @@ public class LigneCommande extends BaseEntity {
         this.commande = commande;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getQuantite() {
-        return quantite;
-    }
-
-    public void setQuantite(Long quantite) {
-        this.quantite = quantite;
-    }
-
-    public Produit getProduit() {
-        return produit;
-    }
-
-    public void setProduit(Produit produit) {
-        this.produit = produit;
-    }
-
-    public Commande getCommande() {
-        return commande;
-    }
-
-    public void setCommande(Commande commande) {
-        this.commande = commande;
-    }
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
 
     @Override
     public String toString() {
