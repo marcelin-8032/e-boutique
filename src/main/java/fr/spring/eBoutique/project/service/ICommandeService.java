@@ -9,9 +9,7 @@ public interface ICommandeService {
 
     Commande addCommande(Commande commande);
 
-    List<Commande> getCommandes(Long idUtilisatuer);
-
-
+    List<Commande> getAllCommandes(Long idUtilisatuer);
 
 
 

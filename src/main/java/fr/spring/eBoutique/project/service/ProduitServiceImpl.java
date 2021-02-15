@@ -1,18 +1,13 @@
 package fr.spring.eBoutique.project.service;
 
+import fr.spring.eBoutique.project.model.Categorie;
 import fr.spring.eBoutique.project.model.Produit;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-public class ProduitServiceImpl implements IProduitService{
-
-
-
-
-
-
-
+public class ProduitServiceImpl implements IProduitService {
 
 
     @Override
@@ -21,7 +16,7 @@ public class ProduitServiceImpl implements IProduitService{
     }
 
     @Override
-    public List<Produit> getProduitsByCategorie(String categorie) {
+    public List<Produit> getProduitsByCategorie(Categorie categorie) {
         return null;
     }
 

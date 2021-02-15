@@ -15,8 +15,6 @@ import java.time.LocalDate;
 @Table(name = "carte_paiement")
 public class CartePaiement extends BaseEntity {
 
-    private static final long serialVersionUID = -4424444347307311208L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

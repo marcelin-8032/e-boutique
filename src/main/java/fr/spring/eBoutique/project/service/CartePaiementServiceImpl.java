@@ -9,12 +9,12 @@ import java.util.List;
 @Service
 public class CartePaiementServiceImpl implements ICartePaiementService{
     @Override
-    public CartePaiement getCartePaiment(Integer id) {
+    public CartePaiement getCartePaiment(Long id) {
         return null;
     }
 
     @Override
-    public List<CartePaiement> getCartesPaiment(Long idUtilisateur) {
+    public List<CartePaiement> getAllCartesPaiment() {
         return null;
     }
 

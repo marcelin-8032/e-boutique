@@ -20,7 +20,7 @@ public class CommandeServiceImpl implements ICommandeService{
     }
 
     @Override
-    public List<Commande> getCommandes(Long idUtilisatuer) {
+    public List<Commande> getAllCommandes(Long idUtilisatuer) {
         return null;
     }
 }

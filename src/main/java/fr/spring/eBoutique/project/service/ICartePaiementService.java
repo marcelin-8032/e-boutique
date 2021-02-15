@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ICartePaiementService {
 
-    CartePaiement getCartePaiment(Integer id);
+    CartePaiement getCartePaiment(Long id);
 
-    List<CartePaiement> getCartesPaiment(Long idUtilisateur);
+    List<CartePaiement> getAllCartesPaiment();
 
     CartePaiement addCartePaiement(CartePaiement cartePaiement);
 
