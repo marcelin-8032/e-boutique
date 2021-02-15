@@ -3,58 +3,57 @@ package fr.spring.eBoutique.project.control;
 
 import fr.spring.eBoutique.project.dao.AdresseDAOImpl;
 import fr.spring.eBoutique.project.model.Adresse;
+import fr.spring.eBoutique.project.service.AdresseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import javax.validation.Valid;
+
+@RestController
+@RequestMapping("api/addresse")
 public class AdresseControl implements IAdresseControl {
 
-	private AdresseDAOImpl adreDAO= new AdresseDAOImpl();
-	
-	public AdresseControl() {
-			}
+    private final AdresseServiceImpl adresseService;
+
+    @Autowired
+    public AdresseControl(AdresseServiceImpl adresseService) {
+        this.adresseService = adresseService;
+    }
 
 
-	@Override
-	@RequestMapping
-	public Adresse getAdresse(Long idUtilisateur) {
-		try {
-			return adreDAO.getAdresse(idUtilisateur);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+    @Override
+    @GetMapping(path = "idUtilisateur")
+    public Adresse getAdresse(@PathVariable("idUtilisateur") Long idUtilisateur) {
 
-	@Override
-	public Adresse addAdresse(Adresse adresse, Integer idUtilisateur) {
-		try {
-			return adreDAO.addAdresse(adresse, idUtilisateur);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+        return adresseService.getAdresse(idUtilisateur);
 
-	@Override
-	public void updateAdresse(Adresse adresse, Integer idUtilisateur) {
-		try {
-			adreDAO.updateAdresse(adresse, idUtilisateur);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
+    }
 
-	@Override
-	public void removeAdresse(Integer idUtilisateur) {
-		try {
-			adreDAO.removeAdresse(idUtilisateur);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
+    @Override
+    @PostMapping(path = "{idUtilisateur}")
+    public Adresse addAdresse(@RequestBody @Valid Adresse adresse,
+                              @PathVariable ("idUtilisateur") Long idUtilisateur) {
+        return adresseService.addAdresse(adresse, idUtilisateur);
 
-	
+    }
+
+    @Override
+    @PutMapping(path="{idUtilisateur}")
+    public void updateAdresse(@RequestBody Adresse adresse,
+                              @PathVariable("idUtilisateur") Long idUtilisateur) {
+        adresseService.updateAdresse(adresse, idUtilisateur);
+
+
+    }
+
+    @Override
+    @DeleteMapping("{idUtilisateur}")
+    public void removeAdresse(@PathVariable("idUtilisateur") Long idUtilisateur) {
+
+        adresseService.removeAdresse(idUtilisateur);
+
+    }
+
+
 }

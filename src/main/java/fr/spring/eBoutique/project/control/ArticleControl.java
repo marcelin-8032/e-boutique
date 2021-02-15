@@ -1,63 +1,49 @@
 package fr.spring.eBoutique.project.control;
 
-import fr.spring.eBoutique.project.dao.ArticleDAOImpl;
 import fr.spring.eBoutique.project.model.Article;
+import fr.spring.eBoutique.project.service.ArticleServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+
 @Controller
+
 public class ArticleControl implements IArticleControl {
 
-	private ArticleDAOImpl aDao = new ArticleDAOImpl();
-	
-	 public ArticleControl() {
-		
+
+	private final ArticleServiceImpl articleService;
+
+	@Autowired
+	public ArticleControl(ArticleServiceImpl articleService) {
+		this.articleService = articleService;
 	}
-	
+
+
 	@Override
-	public List<Article> getArticles(Long idUtilisateur) {
-		
-		try {
-			return aDao.getArticles(idUtilisateur);
-
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+	@GetMapping(path = "{idUtilisateur}/articles")
+	public List<Article> getArticles(@PathVariable("idUtilisateur") Long idUtilisateur) {
+			return articleService.getArticles(idUtilisateur);
 	}
 
 	@Override
-	public Article addArticle(Article article) {
-		
-		try {
-			return aDao.addArticle(article);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+	@PostMapping
+	public Article addArticle(@RequestBody @Valid Article article) {
+			return articleService.addArticle(article);
+
 	}
 
 	@Override
-	public void removeArticle(Long id) {
-		
-		try {
-			aDao.removeArticle(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+	@DeleteMapping("{idUtilisateur}")
+	public void removeArticle(@PathVariable("idUtilisateur") Long idUtilisateur) {
+			articleService.removeArticle(idUtilisateur);
 	}
 
 	@Override
 	public void clear(Long idUtilisateur) {
-		
-			try {
-				aDao.clear(idUtilisateur);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
+				articleService.clear(idUtilisateur);
 	}
 
 }

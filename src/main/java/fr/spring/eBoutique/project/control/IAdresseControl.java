@@ -7,11 +7,11 @@ public interface IAdresseControl {
 
     Adresse getAdresse(Long idUtilisateur);
 
-    Adresse addAdresse(Adresse adresse, Integer idUtilisateur);
+    Adresse addAdresse(Adresse adresse, Long idUtilisateur);
 
-    void updateAdresse(Adresse adresse, Integer idUtilisateur);
+    void updateAdresse(Adresse adresse, Long idUtilisateur);
 
-    void removeAdresse(Integer idUtilisateur);
+    void removeAdresse(Long idUtilisateur);
 
 
 }
