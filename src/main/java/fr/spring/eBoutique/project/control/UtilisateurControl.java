@@ -2,58 +2,59 @@ package fr.spring.eBoutique.project.control;
 
 
 import fr.spring.eBoutique.project.model.Utilisateur;
-import fr.spring.eBoutique.project.service.UtilisateurServiceImpl;
+import fr.spring.eBoutique.project.service.IUtilisateurService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UtilisateurControl implements IUtilisateurControl {
 
-	
-private final UtilisateurServiceImpl utilisateurService;
-	public UtilisateurControl(UtilisateurServiceImpl utilisateurService) {
+    private final IUtilisateurService utilisateurService;
 
-		this.utilisateurService = utilisateurService;
-	}
+    @Autowired
+    public UtilisateurControl(IUtilisateurService utilisateurService) {
+        this.utilisateurService = utilisateurService;
+    }
 
-	@Override
-	public Utilisateur getUtilisateurById(Long id) {
+    @Override
+    @GetMapping(path = "{id}")
+    public Utilisateur getUtilisateurById(@PathVariable Long id) {
+        return utilisateurService.getUtilisateurById(id);
+    }
 
-		return null;
-	}
+    @Override
+    @GetMapping
+    public Utilisateur getUtilisateurByLogin(@RequestBody String login) {
+        return utilisateurService.getUtilisateurByLogin(login);
+    }
 
-	@Override
-	public Utilisateur getUtilisateurByLogin(String login) {
+    @Override
+    @GetMapping
+    public Utilisateur getUtilisateurByEmail(String email) {
+        return utilisateurService.getUtilisateurByEmail(email);
+    }
 
-		return null;
-	}
+    @Override
+    @PostMapping
+    public Utilisateur addUtilisateur(@RequestBody Utilisateur utilisateur) {
+        return utilisateurService.addUtilisateur(utilisateur);
+    }
 
-	@Override
-	public Utilisateur getUtilisateurByEmail(String email) {
+    @Override
+    @PutMapping
+    public void updateUtilisateur(@RequestBody Utilisateur utilisateur) {
+        utilisateurService.updateUtilisateur(utilisateur);
+    }
 
-		return null;
-	}
+    @Override
+    public void seDesinscrireUtilisateur(Long id) {
+        utilisateurService.seDesinscrireUtilisateur(id);
+    }
 
-	@Override
-	public Utilisateur addUtilisateur(Utilisateur utilisateur) {
-
-		return utilisateur;
-	}
-
-	@Override
-	public void updateUtilisateur(Utilisateur utilisateur) {
-
-	}
-
-	@Override
-	public void seDesinscrireUtilisateur(Integer id) {
-		
-
-	}
-
-	@Override
-	public boolean seConnecter(String peseudo, String password) {
-
-		return false;
-	}
+    @Override
+    public boolean seConnecter(String peseudo, String password) {
+        return utilisateurService.seConnecter(peseudo, password);
+    }
 
 }

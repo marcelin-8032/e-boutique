@@ -6,13 +6,12 @@ import java.util.List;
 
 public interface ICartePaiementControl {
 
-    CartePaiement getCartePaiment(Integer id);
+    CartePaiement getCartePaiment(Long id);
 
-    List<CartePaiement> getCartesPaiment(Integer idUtilisateur);
+    List<CartePaiement> getAllCartesPaiment();
 
     CartePaiement addCartePaiement(CartePaiement cartePaiement);
 
-    void removeCartePaiement(Integer id);
-
+    void removeCartePaiement(Long id);
 
 }

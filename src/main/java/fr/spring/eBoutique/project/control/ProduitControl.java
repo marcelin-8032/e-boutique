@@ -1,43 +1,55 @@
 package fr.spring.eBoutique.project.control;
 
 
-
-import fr.spring.eBoutique.project.dao.ProduitDAOImpl;
+import fr.spring.eBoutique.project.model.Categorie;
 import fr.spring.eBoutique.project.model.Produit;
+import fr.spring.eBoutique.project.service.IProduitService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 public class ProduitControl implements IProduitControl {
 
-	
-	@Override
-	public Produit getProduit(Integer id) {
 
-		return null;
-	}
+    private final IProduitService produitService;
 
-	@Override
-	public List<Produit> getProduitsByCategorie(String categorie) {
-
-		return null;
-	}
-
-	@Override
-	public Produit addProduit(Produit produit) {
-
-		return produit;
-	}
-
-	@Override
-	public void updateProduit(Produit produit) {
-
-	}
-
-	@Override
-	public void removeProduit(Integer id) {
+    @Autowired
+    public ProduitControl(IProduitService produitService) {
+        this.produitService = produitService;
+    }
 
 
-  }
+    @Override
+    @GetMapping(path = "{id}")
+    public Produit getProduit(@PathVariable Long id) {
+        return produitService.getProduit(id);
+    }
+
+    @Override
+    @GetMapping
+    public List<Produit> getProduitsByCategorie(@RequestBody Categorie categorie) {
+        return produitService.getProduitsByCategorie(categorie);
+    }
+
+    @Override
+    @PostMapping
+    public Produit addProduit(@RequestBody Produit produit) {
+        return produitService.addProduit(produit);
+    }
+
+    @Override
+    @PutMapping
+    public void updateProduit(@RequestBody Produit produit) {
+        produitService.updateProduit(produit);
+    }
+
+    @Override
+    @DeleteMapping("{id}")
+    public void removeProduit(@PathVariable("id") Long id) {
+        produitService.removeProduit(id);
+    }
 }

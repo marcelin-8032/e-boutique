@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ICommandeControl {
 
-    Commande getCommande(Integer idUtilisatuer);
+    Commande getCommande(Long idUtilisatuer);
 
     Commande addCommande(Commande commande);
 
-    List<Commande> getCommandes(Integer idUtilisatuer);
+    List<Commande> getAllCommandes(Long idUtilisatuer);
 
 
 }

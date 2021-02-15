@@ -15,7 +15,7 @@ public interface IUtilisateurControl {
 
     void updateUtilisateur(Utilisateur utilisateur);
 
-    void seDesinscrireUtilisateur(Integer id);
+    void seDesinscrireUtilisateur(Long id);
 
     boolean seConnecter(String peseudo, String password);
 

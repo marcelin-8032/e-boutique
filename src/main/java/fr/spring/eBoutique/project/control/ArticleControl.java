@@ -1,7 +1,7 @@
 package fr.spring.eBoutique.project.control;
 
 import fr.spring.eBoutique.project.model.Article;
-import fr.spring.eBoutique.project.service.ArticleServiceImpl;
+import fr.spring.eBoutique.project.service.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -10,14 +10,12 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-
 public class ArticleControl implements IArticleControl {
 
-
-	private final ArticleServiceImpl articleService;
+	private final IArticleService articleService;
 
 	@Autowired
-	public ArticleControl(ArticleServiceImpl articleService) {
+	public ArticleControl(IArticleService articleService) {
 		this.articleService = articleService;
 	}
 
