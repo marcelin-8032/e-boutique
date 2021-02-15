@@ -245,7 +245,7 @@ public class Application {
 		
 		comboBoxRole = new JComboBox<String>();
 		for (UserRole userRole : UserRole.values()) {
-			comboBoxRole.addItem(userRole.getValue());
+			comboBoxRole.addItem(userRole.getRole());
 		}
 		comboBoxRole.setBounds(44, 236, 182, 22);
 		panel.add(comboBoxRole);

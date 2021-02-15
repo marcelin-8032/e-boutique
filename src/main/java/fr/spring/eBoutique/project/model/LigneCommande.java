@@ -26,6 +26,7 @@ public class LigneCommande extends BaseEntity {
     private Long quantite;
 
     private Produit produit;
+
     private Commande commande;
 
     public LigneCommande() {

@@ -19,23 +19,7 @@ public class ArticleDAOImpl implements IArticleDAO {
 	private SessionFactory sessionFactory;
 
 
-
-
-
-
-
-
-
-
-
 private Connection connexion= null;
-
-
-
-
-
-
-
 
 	public ArticleDAOImpl() {
 		if (connexion == null) {

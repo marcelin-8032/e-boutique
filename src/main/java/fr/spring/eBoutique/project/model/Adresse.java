@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "adresse")
 public class Adresse extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,11 +29,21 @@ public class Adresse extends BaseEntity {
     @Column(name = "Postal_Code", nullable = false)
     private int codePostal;
 
+    @OneToMany
+    private Utilisateur utilisateur;
 
     public Adresse() {
         super();
     }
 
+    public Adresse(Long id, int numero, String rue, String ville, int codePostal, Utilisateur utilisateur) {
+        this.id = id;
+        this.numero = numero;
+        this.rue = rue;
+        this.ville = ville;
+        this.codePostal = codePostal;
+        this.utilisateur = utilisateur;
+    }
 
     public Adresse(int numero, String rue, String ville, int codePostal) {
         super();
@@ -46,19 +57,6 @@ public class Adresse extends BaseEntity {
     public String toString() {
         return "Adresse [id=" + id + ", numero=" + numero + ", rue=" + rue + ", ville=" + ville + ", codePostal="
                 + codePostal + "]";
-    }
-
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + codePostal;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + numero;
-        result = prime * result + ((rue == null) ? 0 : rue.hashCode());
-        result = prime * result + ((ville == null) ? 0 : ville.hashCode());
-        return result;
     }
 
 
