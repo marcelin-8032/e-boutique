@@ -1,8 +1,8 @@
 package fr.spring.eBoutique.project.model;
 
-import lombok.Getter;
 
-@Getter
+
+
 public enum UserRole {
 
     Client("Client"),
@@ -15,5 +15,7 @@ public enum UserRole {
         this.Role = role;
     }
 
-
+    public String getRole() {
+        return Role;
+    }
 }

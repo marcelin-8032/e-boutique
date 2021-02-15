@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
+@Table(name="Produit")
 public class Produit extends BaseEntity {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

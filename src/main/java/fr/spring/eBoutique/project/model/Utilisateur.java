@@ -19,7 +19,6 @@ import java.util.List;
 @Proxy(lazy = false)
 public class Utilisateur extends BaseEntity {
 
-    private static final long serialVersionUID = 9126054084816010164L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +34,6 @@ public class Utilisateur extends BaseEntity {
     @Email
     private String email;
 
-
     @NotNull
     @Size(min = 8, max = 15)
     @Column(name = "password", nullable = false)
@@ -50,15 +48,16 @@ public class Utilisateur extends BaseEntity {
     @Column(name = "first_name")
     private String prenom;
 
-
     @Column(name = "birth_day")
     private String date_de_naissance;
 
     @Column(name = "telephone")
     private int telephone;
 
+    @Column(name = "actif")
     private boolean actif;
 
+    @Column(name = "role")
     private String role;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -71,7 +70,7 @@ public class Utilisateur extends BaseEntity {
     @OneToOne
     private Panier panier;
 
-    @OneToOne
+    @ManyToOne
     private Adresse adresse;
 
     public Utilisateur() {

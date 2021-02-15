@@ -11,6 +11,7 @@ import java.util.Map;
 @Setter
 @Entity
 public class Panier extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -33,12 +34,6 @@ public class Panier extends BaseEntity {
         this.myMap = myMap;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "Panier [id=" + id + ", myMap=" + myMap + "]";
-    }
 
 
 }
