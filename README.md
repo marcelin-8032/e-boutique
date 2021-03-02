@@ -5,4 +5,4 @@ Spring MVC
 Spring Security
 Spring Data
 JPA-Hibernate
-for frontEnd I am apply Angularfeatures
+for frontEnd I am apply Angular features
