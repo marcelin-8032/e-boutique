@@ -20,16 +20,13 @@ public class CartePaiement extends BaseEntity {
     @Column(name = "id")
     private Long id;
 
-
     @NotNull
     @Column(name = "carte_numero", nullable = false, unique = true)
     private int numero;
 
-
     @NotNull
     @Column(name = "date_validite")
     private LocalDate dateValidite;
-
 
     @NotNull
     @Column(name = "crypto_number")

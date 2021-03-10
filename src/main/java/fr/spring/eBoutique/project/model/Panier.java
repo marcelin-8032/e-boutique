@@ -18,8 +18,7 @@ public class Panier extends BaseEntity {
     private Long id;
 
     @ElementCollection
-    @CollectionTable(name = "order_item_mapping",
-            joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
+    @CollectionTable(name = "order_item_mapping", joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
     @MapKeyColumn(name = "item_name")
     @Column(name = "panier")
     private Map<Produit, Integer> myMap = new HashMap<>();
@@ -33,7 +32,6 @@ public class Panier extends BaseEntity {
         this.id = id;
         this.myMap = myMap;
     }
-
 
 
 }

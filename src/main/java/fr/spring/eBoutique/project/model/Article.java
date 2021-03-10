@@ -43,4 +43,7 @@ public class Article extends BaseEntity {
         this.prix_unit = prix_unit;
     }
 
+
+
+
 }

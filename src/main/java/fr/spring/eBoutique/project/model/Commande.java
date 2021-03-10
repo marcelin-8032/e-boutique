@@ -20,7 +20,6 @@ import java.util.List;
 })
 public class Commande extends BaseEntity {
 
-    private static final long serialVersionUID = -189145911845731690L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

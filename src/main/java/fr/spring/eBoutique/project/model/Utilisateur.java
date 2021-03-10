@@ -8,7 +8,6 @@ import org.hibernate.annotations.Proxy;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,6 @@ import java.util.List;
 @Table(name = "utilisateur")
 @Proxy(lazy = false)
 public class Utilisateur extends BaseEntity {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

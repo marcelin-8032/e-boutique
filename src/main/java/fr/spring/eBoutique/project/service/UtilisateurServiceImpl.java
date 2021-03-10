@@ -1,6 +1,10 @@
 package fr.spring.eBoutique.project.service;
 
 import fr.spring.eBoutique.project.model.Utilisateur;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+
+import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.stereotype.Service;
 
 
@@ -8,9 +12,28 @@ import org.springframework.stereotype.Service;
 public class UtilisateurServiceImpl implements IUtilisateurService {
 
 
+Session session=null;
+Utilisateur utilisateur=null;
+
+
+    @Override
+    public Utilisateur addUtilisateur(Utilisateur utilisateur) {
+
+
+
+        return null;
+    }
+
+
+
+
 
     @Override
     public Utilisateur getUtilisateurById(Long id) {
+
+
+
+
         return null;
     }
 
@@ -24,10 +47,6 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
         return null;
     }
 
-    @Override
-    public Utilisateur addUtilisateur(Utilisateur utilisateur) {
-        return null;
-    }
 
     @Override
     public void updateUtilisateur(Utilisateur utilisateur) {
