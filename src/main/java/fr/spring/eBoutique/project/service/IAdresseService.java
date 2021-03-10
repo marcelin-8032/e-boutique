@@ -9,7 +9,7 @@ public interface IAdresseService {
 
     Adresse addAdresse(Adresse adresse, Long idUtilisateur);
 
-    void updateAdresse(Adresse adresse,Long idUtilisateur);
+    void updateAdresseById(Adresse adresse,Long idUtilisateur);
 
     void removeAdresse(Long idUtilisateur);
 }

@@ -4,10 +4,11 @@ import fr.spring.eBoutique.project.model.Categorie;
 import fr.spring.eBoutique.project.model.Produit;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IProduitService {
 
-    Produit getProduit(Long id);
+    Optional<Produit> getProduit(Long id);
 
     List<Produit> getProduitsByCategorie(Categorie categorie);
 

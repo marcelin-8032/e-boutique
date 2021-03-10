@@ -25,7 +25,8 @@ public class ProduitControl implements IProduitControl {
     @Override
     @GetMapping(path = "{id}")
     public Produit getProduit(@PathVariable Long id) {
-        return produitService.getProduit(id);
+        return
+                produitService.getProduit(id);
     }
 
     @Override

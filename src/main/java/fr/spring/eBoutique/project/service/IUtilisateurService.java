@@ -2,9 +2,11 @@ package fr.spring.eBoutique.project.service;
 
 import fr.spring.eBoutique.project.model.Utilisateur;
 
+import java.util.Optional;
+
 public interface IUtilisateurService {
 
-    Utilisateur getUtilisateurById(Long id);
+   Utilisateur getUtilisateurById(Long id);
 
     Utilisateur getUtilisateurByLogin(String login);
 
@@ -14,9 +16,8 @@ public interface IUtilisateurService {
 
     void updateUtilisateur(Utilisateur utilisateur);
 
+    void removeUtilisateur(Long id);
+
     void seDesinscrireUtilisateur(Long id);
-
-    boolean seConnecter(String peseudo, String password);
-
 
 }
