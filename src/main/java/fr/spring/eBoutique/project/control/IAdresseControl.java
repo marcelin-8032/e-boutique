@@ -8,9 +8,9 @@ public interface IAdresseControl {
 
     Adresse getAdresse(Long idUtilisateur) throws NotFoundException;
 
-    Adresse addAdresse(Adresse adresse, Long idUtilisateur);
+    Adresse addAdresse(Adresse adresse);
 
-    void updateAdresse(Adresse adresse, Long idUtilisateur);
+    void updateAdresse(Adresse adresse);
 
     void removeAdresse(Long idUtilisateur);
 

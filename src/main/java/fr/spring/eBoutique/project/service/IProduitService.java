@@ -8,9 +8,11 @@ import java.util.Optional;
 
 public interface IProduitService {
 
-    Optional<Produit> getProduit(Long id);
+    Produit getProduit(Long id);
 
     List<Produit> getProduitsByCategorie(Categorie categorie);
+
+    List<Produit> gettoutedProduit();
 
     Produit addProduit(Produit produit);
 

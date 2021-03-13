@@ -5,11 +5,12 @@ import javassist.NotFoundException;
 
 public interface IAdresseService {
 
-    Adresse getAdresse(Long idUtilisateur) throws NotFoundException;
+    Adresse getAdresse(Long id) throws NotFoundException;
 
-    Adresse addAdresse(Adresse adresse, Long idUtilisateur);
+    Adresse addAdresse(Adresse adresse);
 
-    void updateAdresseById(Adresse adresse,Long idUtilisateur);
+    void updateAdresse(Adresse adresse);
 
-    void removeAdresse(Long idUtilisateur);
+    void removeAdresse(Long id);
+
 }

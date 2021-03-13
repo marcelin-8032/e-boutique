@@ -6,18 +6,15 @@ import java.util.Optional;
 
 public interface IUtilisateurService {
 
-   Utilisateur getUtilisateurById(Long id);
-
-    Utilisateur getUtilisateurByLogin(String login);
-
-    Utilisateur getUtilisateurByEmail(String email);
+    Utilisateur getUtilisateurById(Long id);
 
     Utilisateur addUtilisateur(Utilisateur utilisateur);
+
+    Utilisateur getUtilisateurByEmail(String email);
 
     void updateUtilisateur(Utilisateur utilisateur);
 
     void removeUtilisateur(Long id);
 
-    void seDesinscrireUtilisateur(Long id);
 
 }

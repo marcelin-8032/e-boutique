@@ -5,13 +5,13 @@ import fr.spring.eBoutique.project.model.Produit;
 import fr.spring.eBoutique.project.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProduitServiceImpl implements IProduitService {
-
 
     @Autowired
     private final ProduitRepository produitRepository;
@@ -20,24 +20,28 @@ public class ProduitServiceImpl implements IProduitService {
         this.produitRepository = produitRepository;
     }
 
-
-    @Override
-    public Optional<Produit> getProduit(Long id) {
-        return produitRepository.findById(id);
+    @Transactional(readOnly = true)
+    public Produit getProduit(Long id) {
+        return produitRepository.findById(id).orElse(null);
     }
 
-    @Override
+    @Transactional(readOnly = true)
     public List<Produit> getProduitsByCategorie(Categorie categorie) {
         return produitRepository.findProductbyCategory(categorie);
-
     }
 
-    @Override
+    @Transactional(readOnly = true)
+    public List<Produit> gettoutedProduit() {
+        List<Produit> produits = new ArrayList<>();
+        produitRepository.findAll().forEach(produits::add);
+        return produits;
+    }
+
     public Produit addProduit(Produit produit) {
-        return produitRepository.save(produit);
+        produitRepository.save(produit);
+        return produit;
     }
 
-    @Override
     public void updateProduit(Produit produit) {
         produitRepository.save(produit);
     }

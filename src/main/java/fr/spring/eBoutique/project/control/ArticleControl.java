@@ -12,36 +12,36 @@ import java.util.List;
 @Controller
 public class ArticleControl implements IArticleControl {
 
-	private final IArticleService articleService;
+    private final IArticleService articleService;
 
-	@Autowired
-	public ArticleControl(IArticleService articleService) {
-		this.articleService = articleService;
-	}
+    @Autowired
+    public ArticleControl(IArticleService articleService) {
+        this.articleService = articleService;
+    }
 
 
-	@Override
-	@GetMapping(path = "{idUtilisateur}/articles")
-	public List<Article> getArticles(@PathVariable("idUtilisateur") Long idUtilisateur) {
-			return articleService.getArticles(idUtilisateur);
-	}
+    @Override
+    @GetMapping(path = "{idUtilisateur}/articles")
+    public List<Article> getArticles() {
+        return articleService.getArticles();
+    }
 
-	@Override
-	@PostMapping
-	public Article addArticle(@RequestBody @Valid Article article) {
-			return articleService.addArticle(article);
+    @Override
+    @PostMapping
+    public Article addArticle(@RequestBody @Valid Article article) {
+        return articleService.addArticle(article);
 
-	}
+    }
 
-	@Override
-	@DeleteMapping("{idUtilisateur}")
-	public void removeArticle(@PathVariable("idUtilisateur") Long idUtilisateur) {
-			articleService.removeArticle(idUtilisateur);
-	}
+    @Override
+    @DeleteMapping("{idUtilisateur}")
+    public void removeArticle(@PathVariable("idUtilisateur") Long idUtilisateur) {
+        articleService.removeArticle(idUtilisateur);
+    }
 
-	@Override
-	public void clear(Long idUtilisateur) {
-				articleService.clear(idUtilisateur);
-	}
+    @Override
+    public void clear(Article article) {
+        articleService.clear(article);
+    }
 
 }

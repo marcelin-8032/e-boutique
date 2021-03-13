@@ -11,7 +11,7 @@ public enum Categorie {
 
     private String Categorie;
 
-    private Categorie(String categorie) {
+   Categorie(String categorie) {
         this.Categorie = categorie;
     }
 

@@ -9,39 +9,33 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-
 @Service
 public class AdresseServiceImpl implements IAdresseService {
 
     @Autowired
     private final AdresseRepository adresseRepository;
-    private final Adresse adresse;
 
-    public AdresseServiceImpl(AdresseRepository adresseRepository, Adresse adresse) {
+    public AdresseServiceImpl(AdresseRepository adresseRepository) {
         this.adresseRepository = adresseRepository;
-        this.adresse = adresse;
     }
 
-    @Override
-    public Adresse getAdresse(Long idUtilisateur) throws NotFoundException {
-        Optional<Adresse> adresseOptional = adresseRepository.findById(idUtilisateur);
-        if (!adresseOptional.isPresent()) {
-            throw new NotFoundException("addrese not found for this id: " + idUtilisateur);
-        }
 
+    @Override
+    public Adresse getAdresse(Long id) throws NotFoundException {
+        Optional<Adresse> adresseOptional = adresseRepository.findById(id);
+        if (!adresseOptional.isPresent()) {
+            throw new NotFoundException("addrese not found for this id: " + id);
+        }
         return adresseOptional.get();
     }
 
     @Override
-    public Adresse addAdresse(Adresse adresse, Long idUtilisateur) {
-        adresse.setId(idUtilisateur);
-
-        return null;
+    public Adresse addAdresse(Adresse adresse) {
+       return adresseRepository.save(adresse);
     }
 
     @Override
-    public void updateAdresseById(Adresse adresse, Long idUtilisateur) {
-        adresse.setId(idUtilisateur);
+    public void updateAdresse(Adresse adresse) {
         adresseRepository.save(adresse);
     }
 

@@ -17,33 +17,25 @@ public class Article extends BaseEntity {
     @Column(name = "id", unique = true, length = 255)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "produitId")
+    private Produit produit;
+
     @NotNull
     @Column(name = "quantity")
     private Integer quantite;
-
-    @ManyToOne
-    private Produit produit;
-
-    @OneToMany
-    private Utilisateur utilisateur;
 
     @NotNull
     @Column(name = "prix_article")
     private Float prix_unit;
 
-    public Article() {
-        super();
-    }
+    @NotNull
+    @Column(name = "prix_total")
+    private Float prix_total;
 
-    public Article(Long id, @NotNull Integer quantite, @NotNull Produit produit, @NotNull Utilisateur utilisateur, @NotNull Float prix_unit) {
-        this.id = id;
-        this.quantite = quantite;
-        this.produit = produit;
-        this.utilisateur = utilisateur;
-        this.prix_unit = prix_unit;
-    }
-
-
+    @ManyToOne
+    @JoinColumn(name = "cartePaiementId")
+    private CartePaiement cartePaiement;
 
 
 }

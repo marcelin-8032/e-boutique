@@ -11,7 +11,7 @@ public interface ICommandeControl {
 
     Commande addCommande(Commande commande);
 
-    List<Commande> getAllCommandes(Long idUtilisatuer);
+    List<Commande> getAllCommandes();
 
 
 }

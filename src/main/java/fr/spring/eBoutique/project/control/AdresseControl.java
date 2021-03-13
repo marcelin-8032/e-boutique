@@ -28,17 +28,15 @@ public class AdresseControl implements IAdresseControl {
 
     @Override
     @PostMapping(path = "{idUtilisateur}")
-    public Adresse addAdresse(@RequestBody @Valid Adresse adresse,
-                              @PathVariable("idUtilisateur") Long idUtilisateur) {
-        return adresseService.addAdresse(adresse, idUtilisateur);
+    public Adresse addAdresse(@RequestBody @Valid Adresse adresse){
+        return adresseService.addAdresse(adresse);
 
     }
 
     @Override
     @PutMapping(path = "{idUtilisateur}")
-    public void updateAdresse(@RequestBody Adresse adresse,
-                              @PathVariable("idUtilisateur") Long idUtilisateur) {
-        adresseService.updateAdresse(adresse, idUtilisateur);
+    public void updateAdresse(@RequestBody Adresse adresse) {
+        adresseService.updateAdresse(adresse);
 
     }
 

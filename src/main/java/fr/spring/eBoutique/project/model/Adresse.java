@@ -23,41 +23,19 @@ public class Adresse extends BaseEntity {
     @Column(name = "Rue", nullable = false, length = 45)
     private String rue;
 
-    @Column(name = "City", nullable = false, length = 45)
-    private String ville;
-
     @Column(name = "Postal_Code", nullable = false)
     private int codePostal;
 
-    @OneToMany
-    private Utilisateur utilisateur;
+    @Column(name = "City", nullable = false, length = 45)
+    private String ville;
 
-    public Adresse() {
-        super();
-    }
-
-    public Adresse(Long id, int numero, String rue, String ville, int codePostal, Utilisateur utilisateur) {
-        this.id = id;
-        this.numero = numero;
-        this.rue = rue;
-        this.ville = ville;
-        this.codePostal = codePostal;
-        this.utilisateur = utilisateur;
-    }
-
-    public Adresse(int numero, String rue, String ville, int codePostal) {
-        super();
-        this.numero = numero;
-        this.rue = rue;
-        this.ville = ville;
-        this.codePostal = codePostal;
-    }
+    @Column(name = "City", nullable = false, length = 45)
+    private String pays;
 
     @Override
     public String toString() {
         return "Adresse [id=" + id + ", numero=" + numero + ", rue=" + rue + ", ville=" + ville + ", codePostal="
                 + codePostal + "]";
     }
-
 
 }

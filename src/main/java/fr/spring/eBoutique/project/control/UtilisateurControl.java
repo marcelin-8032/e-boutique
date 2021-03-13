@@ -23,11 +23,6 @@ public class UtilisateurControl implements IUtilisateurControl {
         return utilisateurService.getUtilisateurById(id);
     }
 
-    @Override
-    @GetMapping
-    public Utilisateur getUtilisateurByLogin(@RequestBody String login) {
-        return utilisateurService.getUtilisateurByLogin(login);
-    }
 
     @Override
     @GetMapping
@@ -47,14 +42,6 @@ public class UtilisateurControl implements IUtilisateurControl {
         utilisateurService.updateUtilisateur(utilisateur);
     }
 
-    @Override
-    public void seDesinscrireUtilisateur(Long id) {
-        utilisateurService.seDesinscrireUtilisateur(id);
-    }
 
-    @Override
-    public boolean seConnecter(String peseudo, String password) {
-        return utilisateurService.seConnecter(peseudo, password);
-    }
 
 }

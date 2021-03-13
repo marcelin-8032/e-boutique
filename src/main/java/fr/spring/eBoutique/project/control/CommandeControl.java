@@ -36,7 +36,7 @@ public class CommandeControl implements ICommandeControl {
 
     @Override
     @GetMapping (path="{idUtilisatuer}/Commande")
-    public List<Commande> getAllCommandes(@PathVariable("idUtilisatuer") Long idUtilisatuer) {
-        return commandeService.getAllCommandes(idUtilisatuer);
+    public List<Commande> getAllCommandes() {
+        return commandeService.getAllCommandes();
     }
 }

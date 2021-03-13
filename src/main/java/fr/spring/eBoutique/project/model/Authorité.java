@@ -1,2 +1,25 @@
-package fr.spring.eBoutique.project.model;public class Authorité {
+package fr.spring.eBoutique.project.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Getter
+@Setter
+@Entity
+public class Authorité extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String login;
+
+    private String genreAuthorite;
+
+
 }

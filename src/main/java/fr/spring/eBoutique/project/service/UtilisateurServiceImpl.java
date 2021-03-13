@@ -25,6 +25,7 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
         return utilisateurRepositoy.save(utilisateur);
     }
 
+
     @Transactional(readOnly = true)
     @Override
     public Utilisateur getUtilisateurById(Long id) {
@@ -38,16 +39,9 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
     }
 
     @Override
-    public Utilisateur getUtilisateurByLogin(String login) {
-        return utilisateurRepositoy.findUtilisatuerByLogin(login);
-    }
-
-
-    @Override
     public Utilisateur getUtilisateurByEmail(String email) {
         return utilisateurRepositoy.findUtilisatuerByEmail(email);
     }
-
 
     @Override
     public void updateUtilisateur(Utilisateur utilisateur) {
@@ -57,11 +51,6 @@ public class UtilisateurServiceImpl implements IUtilisateurService {
     @Override
     public void removeUtilisateur(Long id) {
         utilisateurRepositoy.deleteById(id);
-    }
-
-    @Override
-    public void seDesinscrireUtilisateur(Long id) {
-        utilisateurRepositoy.unSubscriberUtilisatuer(id);
     }
 
 }

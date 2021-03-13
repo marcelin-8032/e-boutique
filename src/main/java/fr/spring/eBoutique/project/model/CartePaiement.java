@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Setter
@@ -18,45 +19,42 @@ public class CartePaiement extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Long cartePaiementId;
 
     @NotNull
     @Column(name = "carte_numero", nullable = false, unique = true)
     private int numero;
 
     @NotNull
-    @Column(name = "date_validite")
-    private LocalDate dateValidite;
+    @Column(name = "nom_sur_carte", nullable = false, unique = true)
+    private String nomeSurCarte;
 
     @NotNull
     @Column(name = "crypto_number")
     @Size(min = 3)
     private int cryptogramme;
 
-    @NotNull
-    @OneToMany
-    private Utilisateur utilisateur;
+    @OneToMany(mappedBy = "cartepaiment",cascade =CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Article> articleList;
+
+    @OneToOne
+    @JoinColumn(name="clientId")
+    private Client client;
 
     public CartePaiement() {
-    }
-
-    public CartePaiement(Long id, @NotNull int numero, @NotNull LocalDate dateValidite, @Size(min = 3) @NotNull int cryptogramme, @NotNull Utilisateur utilisateur) {
-        this.id = id;
-        this.numero = numero;
-        this.dateValidite = dateValidite;
-        this.cryptogramme = cryptogramme;
     }
 
     @Override
     public String toString() {
         return "CartePaiement{" +
-                "id=" + id +
+                "cartePaiementId=" + cartePaiementId +
                 ", numero=" + numero +
-                ", dateValidite=" + dateValidite +
+                ", nomeSurCarte='" + nomeSurCarte + '\'' +
                 ", cryptogramme=" + cryptogramme +
-                ", utilisateur=" + utilisateur +
+                ", client=" + client +
                 '}';
     }
 }
+
 
 

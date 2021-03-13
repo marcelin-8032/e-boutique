@@ -1,9 +1,7 @@
 package fr.spring.eBoutique.project.model;
 
 
-
-
-public enum UserRole {
+public enum UtilisatuerRole {
 
     Client("Client"),
     Magasinier("Magasinier"),
@@ -11,7 +9,7 @@ public enum UserRole {
 
     private String Role;
 
-    private UserRole(String role) {
+    UtilisatuerRole(String role) {
         this.Role = role;
     }
 

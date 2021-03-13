@@ -20,7 +20,6 @@ import java.util.List;
 })
 public class Commande extends BaseEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, length = 255)
@@ -30,7 +29,6 @@ public class Commande extends BaseEntity {
     @Column(name = "creation_date_time", nullable = false)
     private LocalDateTime dateCreation;
 
-
     @NotNull
     @Column(name = "Deliveray_date_time", nullable = false)
     private LocalDateTime dateLivraison;
@@ -39,37 +37,17 @@ public class Commande extends BaseEntity {
     @Column(name = "Total_price", nullable = false)
     private float prix_total;
 
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "commande_id")
-    private Utilisateur utilisateur;
+    private Client client;
 
-    @ManyToOne
-    private List<LigneCommande> listeLignesCommande = new ArrayList<>();
+    @OneToOne
+    @JoinColumn(name="cartePaimentId")
+    private CartePaiement cartePaiement;
 
-
-    public Commande() {
-    }
-
-    public Commande(Long id, LocalDateTime dateCreation, LocalDateTime dateLivraison, float prix_total, Utilisateur utilisateur, List<LigneCommande> listeLignesCommande) {
-        this.id = id;
-        this.dateCreation = dateCreation;
-        this.dateLivraison = dateLivraison;
-        this.prix_total = prix_total;
-        this.utilisateur = utilisateur;
-        this.listeLignesCommande = listeLignesCommande;
-    }
+    @OneToOne
+    @JoinColumn(name="adreseeId")
+    private Adresse adresse;
 
 
-    @Override
-    public String toString() {
-        return "Commande{" +
-                "id=" + id +
-                ", dateCreation=" + dateCreation +
-                ", dateLivraison=" + dateLivraison +
-                ", prix_total=" + prix_total +
-                ", utilisateur=" + utilisateur +
-                ", listeLignesCommande=" + listeLignesCommande +
-                '}';
-    }
 }

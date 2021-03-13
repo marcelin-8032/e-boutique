@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface IArticleService {
 
-    List<Article> getArticles(Long idUtilisateur);
+    List<Article> getArticles();
 
     Article addArticle(Article article);
 
     void removeArticle(Long id);
 
-    void clear(Long idUtilisateur);
+    void clear(Article article);
 
 
 }

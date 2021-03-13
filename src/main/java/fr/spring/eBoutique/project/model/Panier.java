@@ -23,15 +23,4 @@ public class Panier extends BaseEntity {
     @Column(name = "panier")
     private Map<Produit, Integer> myMap = new HashMap<>();
 
-    public Panier() {
-        super();
-    }
-
-    public Panier(Long id, Map<Produit, Integer> myMap) {
-        super();
-        this.id = id;
-        this.myMap = myMap;
-    }
-
-
 }
