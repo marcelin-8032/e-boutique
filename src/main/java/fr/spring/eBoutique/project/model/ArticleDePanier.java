@@ -10,12 +10,14 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-public class Article extends BaseEntity {
+@Table(name = "articles")
+public class ArticleDePanier extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, length = 255)
     private Long id;
+
 
     @ManyToOne
     @JoinColumn(name = "produitId")
@@ -33,9 +35,7 @@ public class Article extends BaseEntity {
     @Column(name = "prix_total")
     private Float prix_total;
 
-    @ManyToOne
-    @JoinColumn(name = "cartePaiementId")
-    private CartePaiement cartePaiement;
+
 
 
 }

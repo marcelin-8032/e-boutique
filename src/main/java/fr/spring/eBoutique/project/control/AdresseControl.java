@@ -11,7 +11,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("api/addresse")
-public class AdresseControl implements IAdresseControl {
+public class AdresseControl {
 
     private final IAdresseService adresseService;
 
@@ -20,27 +20,25 @@ public class AdresseControl implements IAdresseControl {
         this.adresseService = adresseService;
     }
 
-    @Override
     @GetMapping(path = "idUtilisateur")
     public Adresse getAdresse(@PathVariable("idUtilisateur") Long idUtilisateur) throws NotFoundException {
         return adresseService.getAdresse(idUtilisateur);
     }
 
-    @Override
+
     @PostMapping(path = "{idUtilisateur}")
     public Adresse addAdresse(@RequestBody @Valid Adresse adresse){
         return adresseService.addAdresse(adresse);
 
     }
 
-    @Override
     @PutMapping(path = "{idUtilisateur}")
     public void updateAdresse(@RequestBody Adresse adresse) {
         adresseService.updateAdresse(adresse);
 
     }
 
-    @Override
+
     @DeleteMapping("{idUtilisateur}")
     public void removeAdresse(@PathVariable("idUtilisateur") Long idUtilisateur) {
         adresseService.removeAdresse(idUtilisateur);

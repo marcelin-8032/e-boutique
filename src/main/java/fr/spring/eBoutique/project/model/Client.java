@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -13,18 +12,12 @@ import javax.validation.constraints.Size;
 @Setter
 @Getter
 @Entity
+@Table(name = "client")
 public class Client extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clientId;
-
-    @NotEmpty
-    @Size(min = 2, max = 50)
-    private String login;
-
-    @NotEmpty
-    private String modepass;
 
     @NotEmpty
     @Size(min = 2,max = 50)
@@ -41,14 +34,15 @@ public class Client extends BaseEntity {
     @NotEmpty
     private String telephone;
 
-    private boolean actif;
-
-    @Valid
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name ="addresse")
     private Adresse adresse;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "utilisatuerId")
+    private Utilisateur utilisateur;
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "cartePaimentId")
     private CartePaiement cartePaiement;
 

@@ -1,6 +1,5 @@
 package fr.spring.eBoutique.project.service;
 
-import fr.spring.eBoutique.project.model.CartePaiement;
 import fr.spring.eBoutique.project.model.Commande;
 import fr.spring.eBoutique.project.repository.CommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,45 +1,58 @@
 package fr.spring.eBoutique.project.control;
 
 
+import fr.spring.eBoutique.project.model.Adresse;
+import fr.spring.eBoutique.project.model.Client;
 import fr.spring.eBoutique.project.model.Utilisateur;
-import fr.spring.eBoutique.project.service.IUtilisateurService;
+import fr.spring.eBoutique.project.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
+
 
 @Controller
-public class UtilisateurControl implements IUtilisateurControl {
-
-    private final IUtilisateurService utilisateurService;
+public class UtilisateurControl {
 
     @Autowired
-    public UtilisateurControl(IUtilisateurService utilisateurService) {
-        this.utilisateurService = utilisateurService;
+    private IClientService clientService;
+
+    @Autowired
+    public UtilisateurControl(IClientService clientService) {
+        this.clientService = clientService;
     }
 
-    @Override
-    @GetMapping(path = "{id}")
-    public Utilisateur getUtilisateurById(@PathVariable Long id) {
-        return utilisateurService.getUtilisateurById(id);
+    public IClientService getClientService() {
+        return clientService;
     }
 
-
-    @Override
-    @GetMapping
-    public Utilisateur getUtilisateurByEmail(String email) {
-        return utilisateurService.getUtilisateurByEmail(email);
+    public void setClientService(IClientService clientService) {
+        this.clientService = clientService;
     }
 
-    @Override
-    @PostMapping
-    public Utilisateur addUtilisateur(@RequestBody Utilisateur utilisateur) {
-        return utilisateurService.addUtilisateur(utilisateur);
+    @RequestMapping(value = "/client/enregistrement")
+    public ModelAndView getEnregistrementForm() {
+        Client client = new Client();
+        Utilisateur utilisateur = new Utilisateur();
+        Adresse adresse = new Adresse();
+        client.setAdresse(adresse);
+        client.setUtilisateur(utilisateur);
+        return new ModelAndView("enregister", "client", client);
     }
 
-    @Override
-    @PutMapping
-    public void updateUtilisateur(@RequestBody Utilisateur utilisateur) {
-        utilisateurService.updateUtilisateur(utilisateur);
+    @RequestMapping(value = "client/enregistrement", method = RequestMethod.POST)
+    public String enregistrementClient(@Valid @ModelAttribute(value = "client") Client client, Model model,
+                                       BindingResult result) {
+        if (result.hasErrors())
+            return "enregistrement";
+        clientService.addClient(client);
+        model.addAttribute("enregistrementAvecSucces", "Entregitré avec success");
+        return "login";
     }
 
 

@@ -3,11 +3,11 @@ package fr.spring.eBoutique.project.model;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
-import java.util.Map;
 
 @Setter
 @Getter
@@ -18,7 +18,7 @@ public class Produit extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", nullable = false, unique = true)
-    private Long id;
+    private Long produitId;
 
     @NotEmpty
     @Column(name = "name")
@@ -35,9 +35,12 @@ public class Produit extends BaseEntity {
     @Column(name = "discout")
     private int remise;
 
+    @Transient
+    private MultipartFile imagePrduit;
+
     private Categorie categorie;
 
     @OneToMany(mappedBy = "produit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Article> articles;
+    private List<ArticleDePanier> articles;
 
 }

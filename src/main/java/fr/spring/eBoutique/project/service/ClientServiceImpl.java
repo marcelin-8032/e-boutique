@@ -26,9 +26,10 @@ public class ClientServiceImpl implements IClientService {
 
     @Override
     public Client addClient(Client client) {
-        if (client.getModepass() != null) {
-            String modepass = client.getModepass();
-            client.setModepass(passwordEncoder.encode(modepass));
+        Utilisateur utilisateur=client.getUtilisateur();
+        if (utilisateur.getModePass() != null) {
+            String modepass = utilisateur.getModePass();
+            utilisateur.setModePass(passwordEncoder.encode(modepass));
         }
         clientRepository.save(client);
         return client;

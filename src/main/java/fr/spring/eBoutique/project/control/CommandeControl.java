@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Controller
-public class CommandeControl implements ICommandeControl {
+public class CommandeControl  {
 
     private final ICommandeService commandeService;
 
@@ -22,19 +22,19 @@ public class CommandeControl implements ICommandeControl {
         this.commandeService = commandeService;
     }
 
-    @Override
+
     @GetMapping(path= "id")
     public Commande getCommande(@PathVariable("id") Long idUtilisatuer) {
         return commandeService.getCommande(idUtilisatuer);
     }
 
-    @Override
+
     @PostMapping
     public Commande addCommande(@RequestBody Commande commande) {
         return commandeService.addCommande(commande);
     }
 
-    @Override
+
     @GetMapping (path="{idUtilisatuer}/Commande")
     public List<Commande> getAllCommandes() {
         return commandeService.getAllCommandes();

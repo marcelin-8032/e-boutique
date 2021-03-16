@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -15,12 +16,14 @@ public class Panier extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Long panierId;
 
-    @ElementCollection
-    @CollectionTable(name = "order_item_mapping", joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
-    @MapKeyColumn(name = "item_name")
-    @Column(name = "panier")
-    private Map<Produit, Integer> myMap = new HashMap<>();
+    @OneToMany(mappedBy = "panier", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ArticleDePanier> articleDePaniers;
 
+    @OneToOne
+    @JoinColumn(name = "clientId")
+    private Client client;
+
+    private double total;
 }

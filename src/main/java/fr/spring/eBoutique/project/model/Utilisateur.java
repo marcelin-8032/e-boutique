@@ -12,14 +12,14 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "utilisateur")
+@Table(name = "utilisateurs")
 @Proxy(lazy = false)
 public class Utilisateur extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, length = 255)
-    private Long id;
+    private Long utilisatuerId;
 
     @NotNull
     @Column(name = "login", length = 25, nullable = false, unique = true)
@@ -33,8 +33,8 @@ public class Utilisateur extends BaseEntity {
     @Column(name = "actif")
     private boolean actif;
 
-    @Column(name = "clientId")
-    private Long clientId;
+    @OneToOne(mappedBy = "utilisateurs")
+    private Client client;
 
     public Utilisateur() {
         super();

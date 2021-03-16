@@ -14,16 +14,12 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "Commandes")
-@NamedQueries({
-        @NamedQuery(name = "findCommandByName", query = "from Commande c where c.name=: name"),
-        @NamedQuery(name = "findCommandeAll", query = "from Commande")
-})
 public class Commande extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, length = 255)
-    private Long id;
+    private Long commandId;
 
     @NotNull
     @Column(name = "creation_date_time", nullable = false)

@@ -10,6 +10,7 @@ import org.springframework.security.web.authentication.rememberme.PersistentReme
 @Getter
 @Setter
 @Entity
+@Table(name = "logins")
 public class Login {
 
     @Id
@@ -23,7 +24,7 @@ public class Login {
     private String token;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "last_used", nullable = false)
+    @Column(name = "dernier_utilisation", nullable = false)
     private Date date;
 
     public Login() {
