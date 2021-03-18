@@ -1,6 +1,7 @@
 package fr.spring.eBoutique.project.service;
 
 import fr.spring.eBoutique.project.model.ArticleDePanier;
+import fr.spring.eBoutique.project.model.Panier;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface IArticleDePanierService {
 
     void removeArticle(Long id);
 
-    void clear(ArticleDePanier article);
+    void clear(Panier panier);
 
 
 }

@@ -1,8 +1,10 @@
 package fr.spring.eBoutique.project.service;
 
 import fr.spring.eBoutique.project.model.Commande;
+import fr.spring.eBoutique.project.model.Panier;
 import fr.spring.eBoutique.project.repository.CommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,15 +15,9 @@ import java.util.Optional;
 public class CommandeServiceImpl implements ICommandeService {
 
     @Autowired
-    private final CommandeRepository commandeRepository;
+    private CommandeRepository commandeRepository;
 
-    @Autowired
-    private final ICartePaiementService cartePaiementService;
 
-    public CommandeServiceImpl(CommandeRepository commandeRepository, ICartePaiementService cartePaiementService) {
-        this.commandeRepository = commandeRepository;
-        this.cartePaiementService = cartePaiementService;
-    }
 
     @Override
     public Commande getCommande(Long idCommand) {
@@ -35,17 +31,17 @@ public class CommandeServiceImpl implements ICommandeService {
     @Override
     public Commande addCommande(Commande commande) {
 
-        CartePaiement cartePaiement = commande.getCartePaiement();
-        Commande commandeAncien = commandeRepository.getClientOrderBycart(cartePaiement);
+        Panier panier=commande.getPanier();
+        Commande commandeAncien = commandeRepository.getClientOrderBycart(panier);
 
         if (commandeAncien != null) {
-            commandeAncien.setClient(cartePaiement.getClient());
-            commandeAncien.setAdresse(cartePaiement.getClient().getAdresse());
+            commandeAncien.setClient(panier.getClient());
+            commandeAncien.setAdresse(panier.getClient().getAdresse());
             commandeRepository.save(commandeAncien);
             return commandeAncien;
         } else {
-            commandeAncien.setClient(cartePaiement.getClient());
-            commandeAncien.setAdresse(cartePaiement.getClient().getAdresse());
+            commandeAncien.setClient(panier.getClient());
+            commandeAncien.setAdresse(panier.getClient().getAdresse());
             commandeRepository.save(commande);
             return commande;
         }

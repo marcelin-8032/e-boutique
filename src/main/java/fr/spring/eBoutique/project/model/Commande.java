@@ -39,7 +39,7 @@ public class Commande extends BaseEntity {
 
     @OneToOne
     @JoinColumn(name="cartePaimentId")
-    private CartePaiement cartePaiement;
+    private Panier panier;
 
     @OneToOne
     @JoinColumn(name="adreseeId")

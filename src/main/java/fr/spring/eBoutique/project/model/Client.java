@@ -27,6 +27,21 @@ public class Client extends BaseEntity {
     @Size(min = 2,max = 50)
     private String prenom;
 
+
+    @NotEmpty
+    @Size(min=5,max=30)
+    private String login;
+
+    @NotEmpty
+    //@Size(min=6,max=30)
+    private String modepass;
+
+
+
+
+
+
+
     @NotEmpty
     @Email
     private String email;
@@ -44,6 +59,6 @@ public class Client extends BaseEntity {
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "cartePaimentId")
-    private CartePaiement cartePaiement;
+    private Panier panier;
 
 }

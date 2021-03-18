@@ -1,78 +1,63 @@
 package fr.spring.eBoutique.project.control;
 
 
+import fr.spring.eBoutique.project.exception.PersonalException;
 import fr.spring.eBoutique.project.model.Categorie;
 import fr.spring.eBoutique.project.model.Produit;
 import fr.spring.eBoutique.project.service.IProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
-@Controller
-public class ProduitControl {
+@RestController(value = "/produit")
+public class ProduitControl implements HandlerExceptionResolver {
 
     @Autowired
     private IProduitService produitService;
 
 
-    
-    public ProduitControl(IProduitService produitService) {
-        this.produitService = produitService;
+    public Produit getProduit(Long id) {
+        return produitService.getProduit(id);
     }
 
-    public IProduitService getProduitService() {
-        return produitService;
+    public List<Produit> getProduitsByCategorie(Categorie categorie) {
+        List<Produit> produits = new ArrayList<>();
+        return produits;
     }
 
-    public void setProduitService(IProduitService produitService) {
-        this.produitService = produitService;
+    public List<Produit> gettoutedProduit() {
+        List<Produit> produits = new ArrayList<>();
+        return produits;
+
+
     }
 
-
-    @Bean   //uploading images and media
-    public MultipartResolver multipartResolver() {
-        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-        resolver.setMaxUploadSizePerFile(10240000);
-        return resolver;
+    public Produit addProduit(Produit produit) {
+        return produit;
     }
 
+    public void updateProduit(Produit produit) {
 
-    @PostMapping(value = "admin/prduit/addProduit")
-    public Produit addProduit(@RequestBody Produit produit) {
-        return produitService.addProduit(produit);
     }
 
-
-
-
-
-    @GetMapping(path = "getProduit/{id}")
-    public ModelAndView getProduit(@PathVariable (value = "produitId") Long id) {
-        Produit produit=produitService.getProduit(id);
-        return new ModelAndView("produitPage","prduitObj",produit);
+    public void removeProduit(Long id) {
     }
 
 
-    @GetMapping
-    public List<Produit> getProduitsByCategorie(@RequestBody Categorie categorie) {
-        return produitService.getProduitsByCategorie(categorie);
-    }
+    @Override
+    public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        ModelAndView modelAndView = new ModelAndView();
+        PersonalException error = new PersonalException();
 
-
-
-    @PutMapping
-    public void updateProduit(@RequestBody Produit produit) {
-        produitService.updateProduit(produit);
-    }
-
-    @DeleteMapping("{id}")
-    public void removeProduit(@PathVariable("id") Long id) {
-        produitService.removeProduit(id);
+        error.setMessage("Votre demande n'est pas valide.Veuillez entrer une demande valide.");
+        modelAndView.addObject("personalException", error);
+        modelAndView.setViewName("error_page");
+        return modelAndView;
     }
 }

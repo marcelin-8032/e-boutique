@@ -1,6 +1,7 @@
 package fr.spring.eBoutique.project.service;
 
 import fr.spring.eBoutique.project.model.ArticleDePanier;
+import fr.spring.eBoutique.project.model.Panier;
 import fr.spring.eBoutique.project.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,7 +43,7 @@ public class ArticleDePanierServiceImpl implements IArticleDePanierService {
     }
 
     @Override
-    public void clear(ArticleDePanier article) {
+    public void clear(Panier panier) {
         articleRepository.deleteAll();
 
     }

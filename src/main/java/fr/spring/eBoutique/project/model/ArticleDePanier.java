@@ -1,5 +1,6 @@
 package fr.spring.eBoutique.project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,7 +36,9 @@ public class ArticleDePanier extends BaseEntity {
     @Column(name = "prix_total")
     private Float prix_total;
 
-
+    @ManyToOne//with cart
+    @JoinColumn(name="panierId")//primaru key of cart
+    private Panier panier;
 
 
 }
