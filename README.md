@@ -5,4 +5,5 @@ Spring Boot
 Spring MVC
 Spring Security
 Spring Data/JPAJPA-Hibernate
-for frontEnd I am going develop it by Angular II
+
+For frontEnd I am going develop it by Angular II
