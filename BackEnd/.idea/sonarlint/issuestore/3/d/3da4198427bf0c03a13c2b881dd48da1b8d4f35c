@@ -1,0 +1,7 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ä“­Èüÿÿÿÿ8þýïšà0
+{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(½°ú‡úÿÿÿÿ8ÿýïšà0
+{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÄæŸÿûÿÿÿÿ8ÿýïšà0
+{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(«ø›Æÿÿÿÿÿ8ÿýïšà0
+p	java:S116
+"ORename this field "Role" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶é¡çüÿÿÿÿ8ÿýïšà0

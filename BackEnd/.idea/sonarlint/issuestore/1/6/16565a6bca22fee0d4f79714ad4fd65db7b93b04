@@ -1,0 +1,14 @@
+
+}
+java:S1488%"`Immediately return this expression instead of assigning it to the temporary variable "produits".(ßäËŒ8Œÿíšà0
+}
+java:S1488+"`Immediately return this expression instead of assigning it to the temporary variable "produits".(ßäËŒ8Œÿíšà0
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¹¢™Ï8ÿíšà0
+£
+java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ñ¥‚¢ıÿÿÿÿ8¡ÿíšà0
+
+java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Â¿ÛG8¡ÿíšà0
+]
+java:S46840"@Replace this persistent entity with a simple POJO or DTO object.(®íù©8¬¯Öœà0
+b
+java:S46845"@Replace this persistent entity with a simple POJO or DTO object.(ñ¥‚¢ıÿÿÿÿ8ÅéÖœà0

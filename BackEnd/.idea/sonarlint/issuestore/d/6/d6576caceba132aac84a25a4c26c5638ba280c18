@@ -1,0 +1,5 @@
+
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(¼Ú ¿8‘õ™›à0
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Œ˜æŒüÿÿÿÿ8“õ™›à0
+n
+java:S2259."LA "NullPointerException" could be thrown; "commandeAncien" is nullable here.(ì‘öûÿÿÿÿ8šõ™›à0
