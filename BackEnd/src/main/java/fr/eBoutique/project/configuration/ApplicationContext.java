@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
 
-@EnableJpaRepositories(basePackages = {"fr.eBoutique.project"})
+@EnableJpaRepositories(basePackages = {"fr.eboutique.project"})
 @EnableTransactionManagement(proxyTargetClass = true)
 @Configuration
 public class ApplicationContext {

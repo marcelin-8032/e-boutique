@@ -6,7 +6,6 @@ import fr.eboutique.project.service.IArticleDePanierService;
 import fr.eboutique.project.service.IClientService;
 import fr.eboutique.project.service.IPanierService;
 import fr.eboutique.project.service.IProduitService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -21,13 +20,11 @@ import java.util.List;
 @RequestMapping("/panier/control")
 public class ArticleDePanierControl implements HandlerExceptionResolver {
 
+    private final IPanierService panierService;
+    private final IClientService clientService;
+    private final IProduitService produitService;
+    private final IArticleDePanierService articleService;
 
-    private IPanierService panierService;
-    private IClientService clientService;
-    private IProduitService produitService;
-    private IArticleDePanierService articleService;
-
-    @Autowired
     public ArticleDePanierControl(IPanierService panierService, IClientService clientService, IProduitService produitService, IArticleDePanierService articleService) {
         this.panierService = panierService;
         this.clientService = clientService;

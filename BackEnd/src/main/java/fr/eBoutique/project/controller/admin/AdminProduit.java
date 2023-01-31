@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping
 public class AdminProduit implements HandlerExceptionResolver {
 
-
     @PostMapping
     public String ajouterProduit(Model model) {
         return "";

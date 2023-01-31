@@ -1,10 +1,9 @@
 package fr.eboutique.project.service.impl;
 
-import fr.eboutique.project.repository.CommandeRepository;
 import fr.eboutique.project.model.Commande;
 import fr.eboutique.project.model.Panier;
+import fr.eboutique.project.repository.CommandeRepository;
 import fr.eboutique.project.service.ICommandeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,10 +13,8 @@ import java.util.Optional;
 @Service
 public class CommandeServiceImpl implements ICommandeService {
 
+    private final CommandeRepository commandeRepository;
 
-    private CommandeRepository commandeRepository;
-
-    @Autowired
     public CommandeServiceImpl(CommandeRepository commandeRepository) {
         this.commandeRepository = commandeRepository;
     }

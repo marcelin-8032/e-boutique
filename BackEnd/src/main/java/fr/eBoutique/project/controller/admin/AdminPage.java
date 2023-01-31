@@ -3,7 +3,6 @@ package fr.eboutique.project.controller.admin;
 import fr.eboutique.project.exception.PersonalException;
 import fr.eboutique.project.model.Produit;
 import fr.eboutique.project.service.IProduitService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +19,8 @@ import java.util.List;
 public class AdminPage implements HandlerExceptionResolver {
 
 
-    private IProduitService produitService;
+    private final IProduitService produitService;
 
-    @Autowired
     public AdminPage(IProduitService produitService) {
         this.produitService = produitService;
     }

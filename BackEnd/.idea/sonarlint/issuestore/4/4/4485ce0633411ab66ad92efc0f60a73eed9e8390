@@ -1,0 +1,7 @@
+
+3
+java:S1700"Rename field "Categorie"(„Š¼œûÿÿÿÿ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ø‡‚Á
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ª—ØÑ
+t	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(øâ£Ûÿÿÿÿÿ
+n	java:S116"TRename this field "Categorie" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Š¼œûÿÿÿÿ

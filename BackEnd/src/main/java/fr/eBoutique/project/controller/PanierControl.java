@@ -1,10 +1,9 @@
 package fr.eboutique.project.controller;
 
 import fr.eboutique.project.exception.PersonalException;
-import fr.eboutique.project.service.IClientService;
 import fr.eboutique.project.model.Client;
 import fr.eboutique.project.model.Utilisateur;
-import org.springframework.beans.factory.annotation.Autowired;
+import fr.eboutique.project.service.IClientService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,9 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 public class PanierControl implements HandlerExceptionResolver {
 
 
-    private IClientService clientService;
+    private final IClientService clientService;
 
-    @Autowired
     public PanierControl(IClientService clientService) {
         this.clientService = clientService;
     }

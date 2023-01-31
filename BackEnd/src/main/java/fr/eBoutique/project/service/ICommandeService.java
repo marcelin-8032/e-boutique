@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface ICommandeService {
 
-
     Commande getCommande(Long id);
 
     Commande addCommande(Commande commande);

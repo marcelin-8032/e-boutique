@@ -12,7 +12,6 @@ import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
 @Configuration
 public class WebFlowconfiguration extends AbstractFlowConfiguration {
 
-
     @Bean
     public FlowDefinitionRegistry flowDefinitionRegistry() {
         return getFlowDefinitionRegistryBuilder().setBasePath("WEB-INF/flow")

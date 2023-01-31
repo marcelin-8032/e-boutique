@@ -2,7 +2,6 @@ package fr.eboutique.project.controller;
 
 import fr.eboutique.project.exception.PersonalException;
 import fr.eboutique.project.service.IClientService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -16,9 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 public class HomeControl implements HandlerExceptionResolver {
 
 
-    private IClientService clientService;
+    private final IClientService clientService;
 
-    @Autowired
     public HomeControl(IClientService clientService) {
         this.clientService = clientService;
     }

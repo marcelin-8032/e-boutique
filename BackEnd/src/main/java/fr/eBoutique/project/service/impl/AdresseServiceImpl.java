@@ -4,7 +4,6 @@ import fr.eboutique.project.model.Adresse;
 import fr.eboutique.project.repository.AdresseRepository;
 import fr.eboutique.project.service.IAdresseService;
 import javassist.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,8 +11,7 @@ import java.util.Optional;
 @Service
 public class AdresseServiceImpl implements IAdresseService {
 
-    @Autowired
-    private AdresseRepository adresseRepository;
+    private final AdresseRepository adresseRepository;
 
     public AdresseServiceImpl(AdresseRepository adresseRepository) {
         this.adresseRepository = adresseRepository;

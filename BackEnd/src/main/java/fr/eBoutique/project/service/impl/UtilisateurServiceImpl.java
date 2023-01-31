@@ -1,22 +1,18 @@
 package fr.eboutique.project.service.impl;
 
-import fr.eboutique.project.repository.UtilisateurRepositoy;
 import fr.eboutique.project.model.Utilisateur;
-
+import fr.eboutique.project.repository.UtilisateurRepositoy;
 import fr.eboutique.project.service.IUtilisateurService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-
 @Service
 public class UtilisateurServiceImpl implements IUtilisateurService {
 
-    private UtilisateurRepositoy utilisateurRepositoy;
+    private final UtilisateurRepositoy utilisateurRepositoy;
 
-    @Autowired
     public UtilisateurServiceImpl(UtilisateurRepositoy utilisateurRepositoy) {
         this.utilisateurRepositoy = utilisateurRepositoy;
     }

@@ -5,7 +5,6 @@ import fr.eboutique.project.enums.Categorie;
 import fr.eboutique.project.exception.PersonalException;
 import fr.eboutique.project.model.Produit;
 import fr.eboutique.project.service.IProduitService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,11 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/produit")
 public class ProduitControl implements HandlerExceptionResolver {
-
-
-    private IProduitService produitService;
-
-    @Autowired
+    private final IProduitService produitService;
     public ProduitControl(IProduitService produitService) {
         this.produitService = produitService;
     }

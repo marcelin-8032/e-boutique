@@ -1,10 +1,9 @@
 package fr.eboutique.project.service.impl;
 
-import fr.eboutique.project.repository.ProduitRepository;
 import fr.eboutique.project.enums.Categorie;
 import fr.eboutique.project.model.Produit;
+import fr.eboutique.project.repository.ProduitRepository;
 import fr.eboutique.project.service.IProduitService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,10 +13,8 @@ import java.util.List;
 @Service
 public class ProduitServiceImpl implements IProduitService {
 
+    private final ProduitRepository produitRepository;
 
-    private  ProduitRepository produitRepository;
-
-    @Autowired
     public ProduitServiceImpl(ProduitRepository produitRepository) {
         this.produitRepository = produitRepository;
     }

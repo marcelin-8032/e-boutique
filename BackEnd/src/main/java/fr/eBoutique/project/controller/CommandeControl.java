@@ -3,7 +3,6 @@ package fr.eboutique.project.controller;
 
 import fr.eboutique.project.model.Commande;
 import fr.eboutique.project.service.ICommandeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,9 +15,8 @@ import java.util.List;
 @RequestMapping("/commande")
 public class CommandeControl implements HandlerExceptionResolver {
 
-    private ICommandeService commandeService;
+    private final ICommandeService commandeService;
 
-    @Autowired
     public CommandeControl(ICommandeService commandeService) {
         this.commandeService = commandeService;
     }

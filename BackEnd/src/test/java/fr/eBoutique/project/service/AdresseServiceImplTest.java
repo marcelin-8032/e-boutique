@@ -1,4 +1,4 @@
-package fr.eBoutique.project.service;
+package fr.eboutique.project.service;
 
 import org.junit.Before;
 import org.junit.Test;

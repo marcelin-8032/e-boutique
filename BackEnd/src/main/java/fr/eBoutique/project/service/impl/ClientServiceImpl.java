@@ -1,21 +1,17 @@
-package fr.eBoutique.project.service.impl;
+package fr.eboutique.project.service.impl;
 
-import fr.eboutique.project.repository.ClientRepository;
 import fr.eboutique.project.model.Client;
 import fr.eboutique.project.model.Utilisateur;
+import fr.eboutique.project.repository.ClientRepository;
 import fr.eboutique.project.service.IClientService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ClientServiceImpl implements IClientService {
 
-    @Autowired
-    private ClientRepository clientRepository;
-
-    @Autowired
-    private  PasswordEncoder passwordEncoder;
+    private final ClientRepository clientRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public ClientServiceImpl(ClientRepository clientRepository, PasswordEncoder passwordEncoder) {
         this.clientRepository = clientRepository;
